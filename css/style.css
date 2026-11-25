@@ -98,9 +98,45 @@ p, span, li, a, button, input, textarea {
 
 
 /* Menú */
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    right: 35px;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: var(--c-text-cream);
+    cursor: pointer;
+    font-family: var(--font-base);
+    font-weight: 700;
+    padding: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    color: var(--c-brand);
+}
+
+.lang-separator {
+    color: var(--c-text-cream);
+    font-size: 0.9rem;
+}
+
 .main-nav {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 2rem;
 }
@@ -168,7 +204,7 @@ p, span, li, a, button, input, textarea {
   color: var(--c-text-cream);
   padding: 60px 0 0 0; /* empuja hacia abajo */
   max-width: 2504px;
-  margin-left: 150px;
+  margin-left: 165px;
   margin-right: auto;
   margin-top: 200px;
 }
@@ -296,7 +332,7 @@ p, span, li, a, button, input, textarea {
   font-weight: 500;
   margin-top: 1rem;
   font-size: 15px;
-  margin-right: 40px;
+  margin-right: 80px;
 }
 
 
@@ -729,11 +765,15 @@ p, span, li, a, button, input, textarea {
 .portfolio-section {
   background-color: var(--c-dark);
   color: var(--c-text-cream);
-  padding: 120px 0;
+  padding: 40px 0;
   position: relative;
   overflow: hidden;
 }
 
+.portfolio-section-container {
+  position: relative;
+  width: 100%;
+}
 
 .portfolio-section-title {
   margin-left: 450px;
@@ -752,64 +792,107 @@ p, span, li, a, button, input, textarea {
   z-index: 1;
 }
 
+.portfolio-carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 140px;
+}
+
 .portfolio-carousel-items {
   display: flex;
   width: fit-content;
-  padding: 0 50px;
   position: relative;
   z-index: 2;
   will-change: transform;
-  margin-left: 140px;
   transition: transform 0.5s ease-in-out;
   gap: 30px;
+  /* Removemos el margin-left de aquí ya que se controla con padding en el container */
 }
 
 .portfolio-card-img {
-    width: 400px;
-    height: auto;
-    object-fit: cover;
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
 .portfolio-card {
-    flex: 0 0 auto;
-    margin: 0 15px;
+  flex: 0 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  
+}
+
+.portfolio-card:hover .portfolio-card-img {
+  transform: scale(1.05);
+}
+
+.portfolio-card-body {
+  padding: 15px 5px;
 }
 
 .portfolio-arrow-container {
-    text-align: right;
-    margin-top: 25px;
-    right: 60px;
-    position: absolute;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 25px;
+  padding-right: 60px;
 }
 
 .portfolio-arrow-btn {
-    background-color: transparent;
-    color: var(--c-text-cream);
-    border: 2px solid var(--c-text-cream);
-    border-radius: 50%;
-    font-size: 1.5rem;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
+  background-color: transparent;
+  color: var(--c-text-cream);
+  border: 2px solid var(--c-text-cream);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
 }
 
 .portfolio-arrow-btn:hover {
-    background-color: var(--c-brand);
-    color: var(--c-text-cream);
+  background-color: var(--c-brand);
+  color: var(--c-text-cream);
+  border-color: var(--c-brand);
+  transform: scale(1.1);
+}
+
+.portfolio-arrow-btn:active {
+  transform: scale(0.95);
+}
+
+.portfolio-arrow-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .portfolio-carousel-items h3 {
   font-size: 17px;
   color: var(--c-brand);
   margin-top: 10px;
+  margin-bottom: 5px;
   font-family: var(--font-bold);
+  line-height: 1.2;
 }
 
-.portfolio-carousel-items p{
+.portfolio-carousel-items p {
   font-size: 1rem;
   color: var(--c-text-cream);
   margin-top: 5px;
+  margin-bottom: 3px;
   font-family: var(--font-base);
+  line-height: 1.4;
 }
 
 #carousel-container {
@@ -821,6 +904,7 @@ p, span, li, a, button, input, textarea {
   display: flex;
   width: max-content;
 }
+
 
 /* --- Estilos para la Sección Clientes --- */
 
@@ -1084,7 +1168,7 @@ input:focus, textarea:focus {
 
 textarea {
   resize: none;
-  padding-right: 220px;
+  
 }
 
 /* Ajuste para autocompletado en Chrome/Edge/Safari */
@@ -1098,8 +1182,8 @@ textarea:-webkit-autofill {
 .message-container {
   position: relative;
   margin-top: 20px;
-  /* AÑADIDO: Asegurar que tenga altura suficiente para el botón absoluto */
-  min-height: 180px;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-input {
@@ -1232,6 +1316,82 @@ textarea:-webkit-autofill {
   /* display: block; */
   overflow: hidden;
   position: relative;
+}
+
+/* Botón de cambio de idioma */
+.language-switcher {
+  background: transparent;
+  border: 2px solid var(--c-text-cream);
+  color: var(--c-text-cream);
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-family: var(--font-bold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+  min-width: 50px;
+  text-align: center;
+}
+
+.language-switcher:hover {
+  /* background-color: var(--c-brand); */
+  border-color: var(--c-brand);
+  color: var(--c-text-cream);
+  /* transform: translateY(-2px); */
+}
+
+/* .language-switcher:active {
+  transform: translateY(0);
+} */
+
+/* Posicionamiento en la navbar */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.navbar-container .language-switcher {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+/* Responsive para móvil */
+/* Responsive para móvil */
+@media (max-width: 768px) {
+  .language-switcher {
+    position: absolute;
+    top: 50%;
+    right: 80px; /* Espacio para el botón hamburguesa */
+    transform: translateY(-50%);
+    font-size: 11px;
+    padding: 6px 12px;
+    min-width: 40px;
+    transition: none; /* Evita el movimiento al cambiar de tamaño */
+  }
+  
+  .navbar-container .language-switcher {
+    margin: 0;
+    position: relative;
+    left: 30px;
+    top: 15px;
+    
+  }
+}
+
+@media (max-width: 480px) {
+  .language-switcher {
+    right: 55px;
+    font-size: 10px;
+    padding: 5px 10px;
+    min-width: 35px;
+  }
 }
 
 
@@ -3255,13 +3415,13 @@ img, video, svg {
 
   /* PORTFOLIO SECTION */
   .portfolio-section {
-    padding: 60px 0;
+    padding: 10px 0;
   }
 
   .portfolio-section-title {
     
-    width: 90%;
-    max-width: 280px;
+    width: 100%;
+    max-width: 400px;
     margin: 0 auto 30px;
     position: relative;
     top: 0;
@@ -3274,8 +3434,8 @@ img, video, svg {
   
 
   .portfolio-carousel-items {
-    margin-left: 20px;
-    gap: 15px;
+    
+    gap: 20px;
   }
 
   .portfolio-card-img {
@@ -3284,9 +3444,11 @@ img, video, svg {
 
   .portfolio-arrow-container {
     text-align: center;
-    right: auto;
+    /* right: auto; */
     position: relative;
     margin-top: 30px;
+    justify-content: center;
+    padding: 0;
   }
 
   .portfolio-arrow-btn {

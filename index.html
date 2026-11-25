@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>    
+    <title>Aurea</title>    
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon3.png">
     <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -28,16 +28,24 @@
             ☰
           </button>
 
-        <!-- Menú -->
-        <nav class="main-nav">
-          <ul class="main-nav-list">
-            <li><a class="main-nav-link" href="#hero">HOME</a></li>
-            <li><a class="main-nav-link" href="#about">ABOUT</a></li>
-            <li><a class="main-nav-link" href="#services">SERVICES</a></li>
-            <li><a class="main-nav-link" href="#portfolio">PORTFOLIO</a></li>
-            <li><a class="main-nav-link" href="#contact">CONTACT</a></li>
-          </ul>
-        </nav>
+        <div class="nav-wrapper">
+          <!-- Menú -->
+          <nav class="main-nav">
+            <ul class="main-nav-list">
+              <li><a class="main-nav-link" href="javascript:void(0)" data-section="hero" data-translate="home">HOME</a></li>
+              <li><a class="main-nav-link" href="javascript:void(0)" data-section="about" data-translate="about">ABOUT</a></li>
+              <li><a class="main-nav-link" href="javascript:void(0)" data-section="services" data-translate="services">SERVICES</a></li>
+              <li><a class="main-nav-link" href="javascript:void(0)" data-section="portfolio" data-translate="portfolio">PORTFOLIO</a></li>
+              <li><a class="main-nav-link" href="javascript:void(0)" data-section="contact" data-translate="contact">CONTACT</a></li>
+            </ul>
+          </nav>
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button id="lang-es" class="lang-btn active" data-lang="es">ES</button>
+            <span class="lang-separator">/</span>
+            <button id="lang-en" class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -57,7 +65,7 @@
             alt="Think Create Live"
             class="main-text-image"
           />
-          <h1 class="sub-text">Experience the fusion between technique and art.</h1>
+          <h1 class="sub-text" data-translate="heroSubtitle">Experience the fusion between technique and art.</h1>
         </div>
       </section>
 
@@ -66,7 +74,7 @@
         <div class="container">
           <div class="about-content-row">
             <div class="about-text-column">
-              <h2 class="section-title">
+              <h2 class="section-title" data-translate="aboutTitle">
                 ABOUT 
                 <span class="about-icon">
                     <img src="assets/images/connect-1.png" class="about-icons" alt="">
@@ -75,7 +83,7 @@
                   <!-- La línea ahora está fuera del h2 -->
                 <span class="about-title-line"></span>
               
-              <p class="about-description">
+              <p class="about-description" data-translate="aboutDescription">
                 Aurea es una productora técnica general de eventos masivos internacionales con base en Miami que presta servicios para todo LATAM. Provee soluciones/recursos para la realización de eventos (masivos, corporativos, ferias, etc.). Trabajamos con el más estricto estándar de calidad, empleando criterios, tecnología y equipamiento de las marcas líderes del mercado mundial.
               </p>
             </div>
@@ -86,7 +94,7 @@
                 <img src="assets/images/vector.png" alt="Imagen Superpuesta 2" class="about-overlay overlay-top">
                 <img src="assets/images/vector3.png" alt="Imagen Fondo 3" class="about-overlay overlay-bottom">
               </div>
-              <p class="about-image-caption">CALIDAD / TECNOLOGÍA / LIDERAZGO</p>
+              <p class="about-image-caption" data-translate="aboutCaption">CALIDAD / TECNOLOGÍA / LIDERAZGO</p>
             </div>
           </div>
 
@@ -101,7 +109,7 @@
             </div>
             <div class="team-foreground-content">
               <div class="team-members-row">
-                <h2 class="section-title">
+                <h2 class="section-title" data-translate="teamTitle">
                   TEAM <span class="team-icon"><img src="assets/images/equis.png" class="team-icons" alt=""></span>
                 </h2>
                 <img src="assets/images/vector4.png" alt="Decoración debajo de TEAM" class="team-subtitle-image">
@@ -110,7 +118,7 @@
                   <div class="team-member-card">
                     <img src="assets/images/mariano.png" alt="Mariano Bruno" class="team-member-photo"/>
                     <p class="team-member-name">Mariano Bruno</p>
-                    <p class="team-member-role">CEO & Founder</p>
+                    <p class="team-member-role" data-translate="ceoFounder">CEO & Founder</p>
                   </div>
                 </div>
 
@@ -118,7 +126,7 @@
                   <div class="team-member-card">
                     <img src="assets/images/claudina.png" alt="Claudina Gomensoro" class="team-member-photo"/>
                     <p class="team-member-name">Claudina Gomensoro</p>
-                    <p class="team-member-role">Set Designer</p>
+                    <p class="team-member-role" data-translate="setDesigner">Set Designer</p>
                   </div>
                 </div>
 
@@ -126,7 +134,7 @@
                   <div class="team-member-card">
                     <img src="assets/images/guillermo.png" alt="Guillero Gonzalez" class="team-member-photo"/>
                     <p class="team-member-name">Guillermo Gonzalez</p>
-                    <p class="team-member-role">Stage Manager</p>
+                    <p class="team-member-role" data-translate="stageManager">Stage Manager</p>
                   </div>
                 </div>
               </div>
@@ -141,7 +149,7 @@
     </section>
 <section id="services" class="page-section services-section">
   <div class="container-services">
-    <h2 class="section-title title-services">SERVICIOS</h2>
+    <h2 class="section-title title-services" data-translate="servicesTitle">SERVICIOS</h2>
     <div class="service-circle-container">
           <div class="circle-orange-shape">
             <img src="/assets/images/circle.png" alt="circle-img" />
@@ -155,23 +163,23 @@
         
 
         <div class="service-item" data-service="project-management">
-          <h3 class="service-heading">Project Management <span class="service-line"></span></h3>
+          <h3 class="service-heading" data-translate="projectManagement">Project Management <span class="service-line"></span></h3>
         </div>
 
         <div class="service-item" data-service="design-scenarios">
-          <h3 class="service-heading">Diseño y Concepto Creativo <span class="service-line"></span></h3>
+          <h3 class="service-heading" data-translate="designConcept">Diseño y Concepto Creativo <span class="service-line"></span></h3>
         </div>
 
         <div class="service-item" data-service="technical-production">
-          <h3 class="service-heading">Producción Técnica <span class="service-line"></span></h3>
+          <h3 class="service-heading" data-translate="technicalProduction">Producción Técnica <span class="service-line"></span></h3>
         </div>
 
         <div class="service-item" data-service="assembly-direction">
-          <h3 class="service-heading active">Dirección de Montaje <span class="service-line"></span></h3>
+          <h3 class="service-heading active" data-translate="assemblyDirection">Dirección de Montaje <span class="service-line"></span></h3>
         </div>
 
         <div class="service-item" data-service="technical-services">
-          <h3 class="service-heading">Servicios Técnicos <span class="service-line"></span></h3>
+          <h3 class="service-heading" data-translate="technicalServices">Servicios Técnicos <span class="service-line"></span></h3>
         </div>
 
           <div class="service-description-wrapper">
@@ -351,7 +359,7 @@
     </div>
 
     <div class="container client-grid-container">
-        <h2 class="section-title client-section-title">CLIENTES</h2>
+        <h2 class="section-title client-section-title" data-translate="clientsTitle">CLIENTES</h2>
 
         <div class="slider-container slider-right">
             <div class="slider-track">
@@ -570,30 +578,30 @@
     
     <!-- Columna izquierda: Formulario -->
     <div class="contact-form-column">
-      <h2 class="contact-title">CONTACTO <span class="contact-title-line"></span></h2>
+      <h2 class="contact-title" data-translate="contactTitle">CONTACTO <span class="contact-title-line"></span></h2>
       
       
       <form id="contact-form" class="contact-form" method="POST" action="send_mail.php">
-    <p class="contact-intro-text">
+    <p class="contact-intro-text" data-translate="contactIntro">
         Tu consulta cuenta. Escríbenos y te responderemos.
     </p>
 
     <div class="form-row">
         <div class="form-group">
-            <label for="nameInput">Nombre</label>
+            <label for="nameInput" data-translate="nameLabel">Nombre</label>
             <input type="text" id="nameInput" name="name" placeholder="" required>
         </div>
 
         <div class="form-group">
-            <label for="emailInput">Email</label>
+            <label for="emailInput" data-translate="emailLabel">Email</label>
             <input type="email" id="emailInput" name="email" placeholder="" required>
         </div>
     </div>
 
     <div class="form-group message-container">
-        <label for="messageTextarea">Contanos sobre tu proyecto</label>
+        <label for="messageTextarea" data-translate="messageLabel">Contanos sobre tu proyecto</label>
         <textarea id="messageTextarea" name="message" rows="5" required></textarea>
-        <button type="submit" class="submit-btn">ENVIAR</button>
+        <button type="submit" class="submit-btn" data-translate="submitBtn">ENVIAR</button>
     </div>
 
     <div id="successMessage" class="success-message" style="display:none;">
@@ -615,10 +623,10 @@
           <div class="social-links-row">
             <a href="#" target="_blank" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin-in"></i></a>
             <a href="#" target="_blank" aria-label="YouTube" class="social-link"><i class="fab fa-youtube"></i></a>
-            <a href="#" target="_blank" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/aurea.technicalart/" target="_blank" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
             <a href="#" onclick="openWhatsApp()" target="_blank" aria-label="WhatsApp" class="social-link"><i class="fab fa-whatsapp"></i></a>
           </div>
-          <p class="copyright-text">Todos los derechos reservados 2025</p>
+          <p class="copyright-text" data-translate="copyrightText">Todos los derechos reservados 2025</p>
         </div>
       </div>
     </div>
