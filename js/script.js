@@ -6,12 +6,15 @@
 // ===================================================================
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('🟢 DOM cargado, inicializando todas las funciones...');
+
     //
     // -----------------------------------------------------------------
     // Módulo 1: Funcionalidad de la barra de navegación (Navbar)
     // -----------------------------------------------------------------
     //
     function initNavbar() {
+        console.log('📱 Inicializando navbar...');
         const navbar = document.querySelector('.custom-navbar');
         const navbarLinks = document.querySelectorAll('.main-nav-link');
         const sections = document.querySelectorAll('.page-section');
@@ -61,18 +64,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Función para cambiar el fondo de la navbar al hacer scroll
         function handleScroll() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             }
         }
 
         // Función para actualizar el enlace activo en la navbar
         function updateActiveLink() {
+            if (!navbar) return;
+            
             let currentActive = null;
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - navbar.offsetHeight - 200; // Ajuste para el offset
+                const sectionTop = section.offsetTop - navbar.offsetHeight - 200;
                 const sectionBottom = sectionTop + section.offsetHeight;
 
                 if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
@@ -88,12 +95,15 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('scroll', updateActiveLink);
-        
-        // Ejecutar al cargar la página para inicializar
-        handleScroll();
-        updateActiveLink();
+        if (navbar) {
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('scroll', updateActiveLink);
+            
+            // Ejecutar al cargar la página para inicializar
+            handleScroll();
+            updateActiveLink();
+        }
+        console.log('✅ Navbar inicializado');
     }
 
     //
@@ -101,179 +111,197 @@ document.addEventListener('DOMContentLoaded', function() {
     // Módulo 2: Funcionalidad de la sección de servicios
     // -----------------------------------------------------------------
     //    
-    
-// -----------------------------------------------------------------
-    // Módulo 2: Funcionalidad de la sección de servicios OPCION 1 
-    // -----------------------------------------------------------------
-    //  
-
-function initServices() {
-        // --- SECCIÓN SERVICIOS: Hover y Cambio de Descripción/Imagen ---
+    function initServices() {
+        console.log('🔧 Inicializando servicios...');
+        
         const serviceItems = document.querySelectorAll('.service-item');
         const serviceDescriptionElement = document.querySelector('.service-description');
         const serviceImageElement = document.getElementById('service-display-image');
+        const serviceIconElement = document.getElementById('service-icon-display');
 
-        if (!serviceItems.length || !serviceDescriptionElement || !serviceImageElement) return;
+        if (!serviceItems.length || !serviceDescriptionElement || !serviceImageElement) {
+            console.log('⚠️ Elementos de servicios no encontrados');
+            return;
+        }
 
         // Objeto con descripciones e IMÁGENES para cada servicio
         const serviceData = {
             'project-management': {
                 desc: 'Ofrecemos soluciones integrales de gestión de proyectos, asegurando que cada fase de tu evento se desarrolle sin problemas, desde la planificación inicial hasta la ejecución final. Nuestro equipo experto garantiza una coordinación eficiente y resultados impecables.',
-                img: '/assets/images/project_management.png' // Asegúrate de que esta ruta sea correcta
+                img: '/assets/images/project_management.png',
+                icon: '/assets/images/icon_project_management.png'
             },
-            'design-scenarios': { // Corregido para que coincida con data-service
+            'design-scenarios': {
                 desc: 'En Aurea Technical Art, combinamos técnica y arte para dar forma a experiencias únicas que inspiran, conmueven y conectan con el público. Desde ferias, convenciones y shows, hasta acciones de marca y montajes especiales, desarrollamos propuestas que fusionan estética, funcionalidad y emoción. Esta sinergia nos permite crear momentos memorables que trascienden barreras culturales y lingüísticas, convirtiendo cada evento en una experiencia irrepetible.',
-                img: '/assets/images/diseño_escenarios.png' // Asegúrate de que esta ruta sea correcta
+                img: '/assets/images/diseño_escenarios.png',
+                icon: '/assets/images/icon_design.png'
             },
-            'technical-production': { // Corregido para que coincida con data-service
+            'technical-production': {
                 desc: 'Contamos con personal altamente capacitado y con amplia experiencia en producciones internacionales, especializado en la ejecución de espectáculos y giras de primer nivel mundial. Nuestro equipo se encarga de coordinar cada detalle técnico, asegurando un desarrollo fluido y profesional en todas las etapas del evento.',
-                img: '/assets/images/produccion_tecnica.png' // Asegúrate de que esta ruta sea correcta
+                img: '/assets/images/produccion_tecnica.png',
+                icon: '/assets/images/icon_technical_production.png'
             },
-            'assembly-direction': { // Corregido para que coincida con data-service
+            'assembly-direction': {
                 desc: 'Nuestro equipo técnico lidera y coordina a los servicios especializados para garantizar un montaje seguro, preciso y acorde a la magnitud del evento. Supervisamos cada fase del montaje para que el resultado final cumpla con los más altos estándares de calidad y presentación.',
-                img: '/assets/images/direccion_montaje.png' // Asegúrate de que esta ruta sea correcta
+                img: '/assets/images/direccion_montaje.png',
+                icon: '/assets/images/icon_assembly.png'
             },
-            'technical-services': { // Corregido para que coincida con data-service
+            'technical-services': {
                 desc: 'Ponemos a disposición sonido, iluminación, video, pantallas LED, escenografía, efectos especiales, logística, rigging, energía y otros servicios esenciales para la correcta ejecución de cualquier evento o espectáculo. Brindamos soluciones completas que integran tecnología y experiencia profesional.',
-                img: '/assets/images/servicio_tecnico.png' // Asegúrate de que esta ruta sea correcta
-            },
-            // 'pantalla': {
-            //     desc: 'Diseño de pantallas para shows y eventos. Creación de visuales para pantallas gigantes. Sets originales para eventos comerciales y shows. Mapping 3D. Contamos con tecnología de vanguardia para ofrecer soluciones de visualización impactantes.',
-            //     img: '/assets/images/mask-group.png' // Esta es la imagen predeterminada que ya tienes
-            // }
+                img: '/assets/images/servicio_tecnico.png',
+                icon: '/assets/images/icon_technical_services.png'
+            }
         };
 
         // Función para activar un servicio
         function activateService(item) {
-            // Remover clase 'active' de todos los ítems
             serviceItems.forEach(si => {
                 si.classList.remove('active');
-                si.querySelector('.service-heading').classList.remove('active'); // Remover de los headings también
+                si.querySelector('.service-heading').classList.remove('active');
             });
 
-            // Añadir clase 'active' al ítem y heading actual
             item.classList.add('active');
             item.querySelector('.service-heading').classList.add('active');
 
             const type = item.dataset.service;
-            if (serviceData[type]) { // Asegúrate de que el tipo exista en serviceData
+            if (serviceData[type]) {
                 serviceDescriptionElement.textContent = serviceData[type].desc;
                 serviceImageElement.src = serviceData[type].img;
+                if (serviceIconElement) {
+                    serviceIconElement.src = serviceData[type].icon;
+                }
             } else {
-                // Fallback si no se encuentra el servicio (opcional)
                 console.warn(`No se encontraron datos para el servicio: ${type}`);
-                // Puedes establecer una descripción e imagen predeterminadas aquí
                 serviceDescriptionElement.textContent = "Selecciona un servicio para ver la descripción.";
-                serviceImageElement.src = "/assets/images/mask-group.png"; // Imagen predeterminada
+                serviceImageElement.src = "/assets/images/mask-group.png";
+                if (serviceIconElement) {
+                    serviceIconElement.src = ""; // o una imagen por defecto
+                }
             }
         }
 
         serviceItems.forEach(item => {
-            // Usamos 'mouseenter' y 'mouseleave' para el efecto de hover y reseteo
             item.addEventListener('mouseenter', function () {
                 activateService(this);
             });
 
-            // Opcional: Si quieres que regrese al estado inicial o a un servicio predeterminado
-            // cuando el cursor sale de los items. Esto puede ser útil.
-            // item.addEventListener('mouseleave', function() {
-            //     // Revertir a un estado inicial, por ejemplo, el primer servicio o el activo por defecto
-            //     const defaultService = document.querySelector('.service-item[data-service="assembly-direction"]'); // O el que quieras por defecto
-            //     if (defaultService) {
-            //         activateService(defaultService);
-            //     }
-            // });
-
-            // Accesibilidad: activar con teclado
             item.addEventListener('keydown', function (e) {
                 if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault(); // Previene el scroll de la página con la barra espaciadora
+                    e.preventDefault();
                     activateService(this);
                 }
             });
         });
 
-        // Estado inicial (Carga la información del servicio con la clase 'active' al cargar la página)
-        // Se cambió la variable serviceDescriptions por serviceData.
+        // Estado inicial
         const initialItem = document.querySelector('.service-heading.active')?.closest('.service-item');
         if (initialItem) {
-            // Si hay un item con 'active' al inicio, lo activamos
             activateService(initialItem);
         } else if (serviceItems.length > 0) {
-            // Si no hay un activo, activamos el primer servicio por defecto
             activateService(serviceItems[0]);
         }
+        
+        console.log('✅ Servicios inicializados');
     }
 
-  
-    
     //
- //
     // -----------------------------------------------------------------
     // Módulo 3: Animación del carrusel de PORTFOLIO (con GSAP)
     // -----------------------------------------------------------------
     //    
-   function initPortfolioCarousel() {
+    function initPortfolioCarousel() {
+    console.log('🎠 Inicializando carrusel...');
+    
     const carouselTrack = document.getElementById('carousel-track');
-    if (!carouselTrack) return;
+    if (!carouselTrack) {
+        console.log('⚠️ Carrusel no encontrado');
+        return;
+    }
 
     const nextButton = document.getElementById('portfolio-next');
-    if (!nextButton) return;
+    const prevButton = document.getElementById('portfolio-prev');
+    if (!nextButton || !prevButton) return;
 
-    const cards = carouselTrack.querySelectorAll('.portfolio-card');
+    const cards = Array.from(carouselTrack.querySelectorAll('.portfolio-card'));
     if (cards.length === 0) return;
 
-    const cardWidth = cards[0].offsetWidth + 30; // ancho tarjeta + margen
+    const cardCount = cards.length;
+    let cardWidth;
     let currentIndex = 0;
 
-    // Clonamos las primeras tarjetas y las pegamos al final (para efecto infinito)
-    const clones = [];
-    for (let i = 0; i < cards.length; i++) {
-        const clone = cards[i].cloneNode(true);
-        clone.classList.add("clone");
+    // Clonar todos los items y agregarlos al final para el loop infinito hacia adelante
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.add('clone');
         carouselTrack.appendChild(clone);
-        clones.push(clone);
+    });
+
+    function updateCarouselDimensions() {
+        cardWidth = cards[0].offsetWidth + 30; // 30 es el gap
+        updateCarousel(false);
     }
 
     function updateCarousel(animate = true) {
         const offset = -currentIndex * cardWidth;
+        carouselTrack.style.transition = animate ? 'transform 0.5s ease' : 'none';
         carouselTrack.style.transform = `translateX(${offset}px)`;
-        carouselTrack.style.transition = animate ? "transform 0.5s ease" : "none";
     }
 
     nextButton.addEventListener('click', () => {
         currentIndex++;
         updateCarousel();
 
-        // Cuando pasamos al final de las originales → saltamos sin animación al inicio
-        if (currentIndex === cards.length) {
+        if (currentIndex >= cardCount) {
+            // Al llegar al final de los originales (inicio de los clones)
             setTimeout(() => {
                 currentIndex = 0;
-                updateCarousel(false); // sin transición → no se nota el salto
-            }, 500); // esperar a que termine la animación
+                updateCarousel(false); // Salto instantáneo al principio
+            }, 500); // Debe coincidir con la duración de la transición
         }
     });
 
-    // Inicial
-    updateCarousel();
+    prevButton.addEventListener('click', () => {
+        if (currentIndex === 0) {
+            // Si estamos en el primer elemento, saltamos al final (al clon correspondiente)
+            currentIndex = cardCount;
+            updateCarousel(false); // Salto instantáneo
+
+            // Forzamos un reflow para que la siguiente transición se aplique
+            setTimeout(() => {
+                currentIndex--;
+                updateCarousel(true); // Animamos al elemento anterior
+            }, 20);
+
+        } else {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    window.addEventListener('resize', updateCarouselDimensions);
+    
+    // Pequeño retraso para asegurar que el DOM está completamente renderizado
+    setTimeout(updateCarouselDimensions, 100);
+
+    console.log('✅ Carrusel inicializado con loop');
 }
 
-
-
-    //
-  
     //
     // -----------------------------------------------------------------
     // Módulo 4: Animaciones de los sliders de CLIENTES y la barra de imágenes
     // -----------------------------------------------------------------
     //
-        function initSliders() {
+    function initSliders() {
+        console.log('🎭 Inicializando sliders...');
+        
         const sliders = document.querySelectorAll('.clients-section .slider-track');
         const imageSlider = document.querySelector('.image-slider-section .slider-track');
         
-        if (!sliders.length && !imageSlider) return;
+        if (!sliders.length && !imageSlider) {
+            console.log('⚠️ Sliders no encontrados');
+            return;
+        }
 
-        // Función para duplicar y animar un slider
         function setupSlider(slider, animationDuration, direction) {
             const sliderContent = slider.innerHTML;
             slider.innerHTML += sliderContent;
@@ -284,27 +312,15 @@ function initServices() {
             } else {
                 slider.style.animationName = 'scroll-right-infinite';
             }
-
-            // Se eliminan los event listeners para que el slider no se detenga al pasar el cursor
-            // slider.addEventListener('mouseenter', () => {
-            //     slider.style.animationPlayState = 'paused';
-            // });
-            // slider.addEventListener('mouseleave', () => {
-            //     slider.style.animationPlayState = 'running';
-            // });
         }
         
-        // Clientes
         document.querySelectorAll('.clients-section .slider-container').forEach(container => {
             const track = container.querySelector('.slider-track');
             const direction = container.classList.contains('slider-right') ? 'right' : 'left';
-            setupSlider(track, '55s', direction); // Aumentado de 50s a 100s para hacerlo más lento
+            setupSlider(track, '55s', direction);
         });
-
-        // Slider de imágenes infinito
-        // if (imageSlider) {
-        //     setupSlider(imageSlider, '150s', 'left');   // Aumentado de 55s a 110s para hacerlo más lento
-        // }
+        
+        console.log('✅ Sliders inicializados');
     }
 
     //
@@ -313,53 +329,119 @@ function initServices() {
     // -----------------------------------------------------------------
     //
     function initContactForm() {
+        console.log('📧 Inicializando formulario de contacto...');
+        
         const form = document.getElementById("contact-form");
         const successMessage = document.getElementById("successMessage");
+        
+        console.log('Formulario encontrado:', !!form);
+        console.log('Mensaje de éxito encontrado:', !!successMessage);
 
-        if(form) {
-            form.addEventListener("submit", function(e) {
-                e.preventDefault();
+        if (!form) {
+            console.error('❌ No se encontró el formulario con ID "contact-form"');
+            return;
+        }
 
-                const formData = new FormData(form);
+        const submitBtn = form.querySelector('.submit-btn');
+        console.log('Botón encontrado:', !!submitBtn);
 
-                fetch("send_mail.php", {
-                    method: "POST",
-                    body: formData
-                })
-                .then(res => res.text())
-                .then(data => {
-                    if (data.trim() === "success") {
-                        successMessage.style.display = "block";
-                        form.reset();
-                        setTimeout(() => {
-                            successMessage.style.display = "none";
-                        }, 5000);
-                    } else {
-                        alert("Error al enviar el mensaje. Intenta de nuevo.");
-                    }
-                })
-                .catch(() => alert("Error de conexión"));
+        if (!submitBtn) {
+            console.error('❌ No se encontró el botón .submit-btn');
+            return;
+        }
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            console.log('🚀 Formulario enviado - Event listener funcionando');
+            
+            // Deshabilitar botón durante el envío
+            submitBtn.disabled = true;
+            submitBtn.textContent = "ENVIANDO...";
+
+            const formData = new FormData(form);
+            
+            // Debug: mostrar datos que se están enviando
+            console.log('📤 Datos a enviar:');
+            for (let pair of formData.entries()) {
+                console.log(`  ${pair[0]}: ${pair[1]}`);
+            }
+
+            fetch("send_mail.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                console.log('📡 Estado de respuesta:', response.status);
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor: ' + response.status);
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('📥 Respuesta del servidor:', data);
+                
+                if (data.trim() === "success") {
+                    console.log('✅ Éxito!');
+                    successMessage.style.display = "block";
+                    successMessage.style.color = "var(--c-brand)";
+                    successMessage.textContent = "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.";
+                    form.reset();
+                    
+                    setTimeout(() => {
+                        successMessage.style.display = "none";
+                    }, 5000);
+                } else {
+                    console.error('❌ Error del servidor:', data);
+                    alert("Error: " + data);
+                }
+            })
+            .catch(error => {
+                console.error('💥 Error de fetch:', error);
+                alert("Error de conexión: " + error.message);
+            })
+            .finally(() => {
+                // Rehabilitar botón
+                submitBtn.disabled = false;
+                submitBtn.textContent = "ENVIAR";
+                console.log('🔄 Botón rehabilitado');
+            });
+        });
+
+        // Event listener adicional para el botón como respaldo
+        submitBtn.addEventListener('click', function(e) {
+            console.log('🖱️ CLICK en botón detectado directamente');
+        });
+
+        console.log('✅ Formulario de contacto inicializado');
+    }
+
+    // --- VIDEO AUTOPLAY (SAFARI/iOS FIX) ---
+    function initVideo() {
+        const video = document.querySelector('.video-background video');
+        if (video && typeof video.play === "function") {
+            video.play().catch(error => {
+                console.log("Video autoplay failed:", error);
             });
         }
     }
 
-    //
-    // -----------------------------------------------------------------
-    // Iniciar todas las funcionalidades al cargar la página
-    // -----------------------------------------------------------------
-    //
+    // ===== INICIALIZACIÓN DE TODOS LOS MÓDULOS =====
     initNavbar();
     initServices();
     initPortfolioCarousel();
     initSliders();
     initContactForm();
+    initVideo();
+    
+    console.log('🎉 Todas las funciones inicializadas correctamente');
 
+    
 });
 
-// --- VIDEO AUTOPLAY (SAFARI/iOS FIX) ---
-const video = document.querySelector('.video-background video');
-if (video && typeof video.play === "function") {
-    video.play().catch(error => {
-        console.log("Video autoplay failed:", error);
-    });
+// Función para abrir WhatsApp
+function openWhatsApp() {
+    const phoneNumber = '17868468898'; // Reemplaza con tu número de teléfono
+    const message = encodeURIComponent('Hola, me gustaría más información sobre sus servicios.'); // Mensaje predeterminado
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, '_blank');
 }
