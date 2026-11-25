@@ -1,0 +1,1967 @@
+# # Style1
+
+# /* Estilos Generales y Resets */
+# body {
+#     margin: 0;
+#     font-family: 'Montserrat', sans-serif; /* O la fuente que elijas */
+#     background-color: #000; /* Fondo oscuro general */
+#     color: #fff; /* Color de texto predeterminado */
+#     overflow-x: hidden; /* Evita scroll horizontal */
+# }
+
+# /* Navbar Personalizado */
+# .custom-navbar {
+#     background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+#     padding: 1rem 0;
+#     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+# }
+
+# .aurea-logo {
+#     color: #fff;
+#     font-size: 1.8rem;
+#     font-weight: 700;
+#     letter-spacing: 2px;
+#     text-transform: uppercase;
+#     margin-left: 20px; /* Ajusta según necesidad */
+# }
+
+# .custom-navbar .navbar-nav .nav-link {
+#     color: rgba(255, 255, 255, 0.7); /* Color por defecto de los enlaces */
+#     font-weight: 400;
+#     margin-right: 25px; /* Espaciado entre enlaces */
+#     transition: color 0.3s ease;
+# }
+
+# .custom-navbar .navbar-nav .nav-link:hover {
+#     color: #fff; /* Color al pasar el ratón */
+# }
+
+# .custom-navbar .navbar-nav .nav-link.home-link {
+#     color: #FF5722; /* Color específico para el enlace HOME (ej. naranja) */
+#     font-weight: 700;
+# }
+
+# .custom-navbar .navbar-toggler {
+#     border-color: rgba(255, 255, 255, 0.1);
+# }
+
+# .custom-navbar .navbar-toggler-icon {
+#     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+# }
+
+# /* Hero Section (Home) */
+# .hero-section {
+#     position: relative;
+#     width: 100%;
+#     height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+#     display: flex;
+#     justify-content: center;
+#     align-items: center;
+#     overflow: hidden; /* Esconde cualquier desbordamiento del video */
+# }
+
+# .video-background {
+#     position: absolute;
+#     top: 0;
+#     left: 0;
+#     width: 100%;
+#     height: 100%;
+#     z-index: -1; /* Envía el video al fondo */
+#     background-color: #000; /* Color de fondo si el video no carga */
+# }
+
+# .video-background video {
+#     width: 100%;
+#     height: 100%;
+#     object-fit: cover; /* Cubre el contenedor manteniendo el aspecto ratio */
+#     filter: brightness(0.6) contrast(1.2); /* Ajustes visuales para oscurecer y resaltar */
+# }
+
+# /* Hero Section (Home) */
+# .hero-section {
+#     position: relative;
+#     width: 100%;
+#     height: 100vh;
+#     display: flex;
+#     /* justify-content: center; // <--- Eliminar o comentar si quieres que el contenido se pegue a la izquierda del flex container */
+#     justify-content: flex-start;
+#     align-items: center;
+#     overflow: hidden;
+# }
+
+# .hero-content {
+#     position: relative;
+#     z-index: 1;
+#     text-align: left;
+#     color: #fff;
+#     padding: 0 5%;
+#     max-width: 800px;
+    
+#     /* Estos dos son clave para la alineación del *bloque* dentro de un contenedor flex */
+#     margin-left: 5%; /* <--- Mantener el margen desde la izquierda */
+#     margin-right: auto; /* <--- Empuja el elemento hacia la izquierda si el padre es flex */
+#     /* margin: 0 auto; // Asegúrate de que esta línea NO esté presente si alguna vez la tuviste */
+# }
+
+# .main-text-image {
+#     max-width: 80%;
+#     height: auto;
+#     margin-bottom: 20px;
+#     margin-left: 0; /* Asegurarse de que no haya margin-left: auto; */
+#     margin-right: 0; /* Asegurarse de que no haya margin-right: auto; */
+# }
+
+# .sub-text {
+#     font-size: 1.5rem;
+#     font-weight: 400;
+#     color: rgba(255, 255, 255, 0.8);
+#     max-width: 700px;
+#     margin-left: 0; /* Asegurarse de que no haya margin-left: auto; */
+#     margin-right: 0; /* Asegurarse de que no haya margin-right: auto; */
+# }
+# /* Media Queries para Responsividad del Hero Content (Ajustar para móvil) */
+# @media (max-width: 767.98px) {
+#     .hero-content {
+#         padding: 0 5%; /* Mantener padding en móviles */
+#         margin-left: 5%; /* Mantener margin-left en móviles */
+#         text-align: left; /* Asegurar que se mantenga a la izquierda */
+#     }
+#     .main-text-image {
+#         max-width: 90%; /* Ajuste para imágenes en móviles */
+#     }
+# }
+
+# /* Puedes añadir más ajustes si es necesario para tamaños de pantalla específicos */
+
+# .main-text-image {
+#     max-width: 80%; /* Asegura que la imagen se adapte */
+#     height: auto;
+#     margin-bottom: 20px;
+#     /* Si es un SVG, podrías estilizarlo con CSS directamente */
+#     /* filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); */
+# }
+
+# .sub-text {
+#     font-size: 1.5rem;
+#     font-weight: 400;
+#     color: rgba(255, 255, 255, 0.8);
+#     max-width: 700px;
+#     margin: 0 auto;
+# }
+
+# /* Media Queries para responsividad */
+# @media (max-width: 992px) {
+#     .custom-navbar .navbar-nav {
+#         background-color: rgba(0, 0, 0, 0.9); /* Fondo del menú colapsado */
+#         padding: 10px;
+#         border-radius: 5px;
+#         margin-top: 10px;
+#     }
+#     .custom-navbar .navbar-nav .nav-link {
+#         margin-right: 0;
+#         text-align: center;
+#         padding: 10px 0;
+#     }
+#     .aurea-logo {
+#         margin-left: 10px;
+#     }
+#     .main-text-image {
+#         max-width: 90%;
+#     }
+#     .sub-text {
+#         font-size: 1.2rem;
+#     }
+# }
+
+# @media (max-width: 768px) {
+#     .sub-text {
+#         font-size: 1rem;
+#     }
+# }
+
+# @media (max-width: 576px) {
+#     .aurea-logo {
+#         font-size: 1.5rem;
+#     }
+#     .sub-text {
+#         font-size: 0.9rem;
+#     }
+# }
+
+# /* --- Estilos de la Sección ABOUT & TEAM --- */
+# .about-and-team-section {
+#     padding: 80px 0; /* Añade un poco de relleno vertical */
+#     background-color: #0d0d0d; /* Un fondo oscuro ligeramente diferente al de la hero */
+#     min-height: 100vh; /* Asegura que ocupe al menos el 100% de la altura de la ventana */
+#     display: flex; /* Usa flexbox para centrar el contenido verticalmente */
+#     align-items: center;
+# }
+
+# .about-content-row {
+#     margin-bottom: 60px; /* Espacio entre la sección About y la sección Team */
+# }
+
+# .about-title {
+#     font-size: 3rem;
+#     font-weight: 700;
+#     color: #fff;
+#     letter-spacing: 2px;
+#     margin-bottom: 20px;
+#     text-transform: uppercase;
+#     /* Los estilos para el efecto de contorno del texto (como en tu imagen) son complejos de replicar solo con CSS.
+#        Lo ideal es que la imagen "TEAM" y el estilo del texto "ABOUT" se generen como SVGs o PNGs con transparencia
+#        si buscas ese efecto exacto de contorno.
+#        Para texto, puedes intentar con text-shadow o text-stroke (experimental) para algo similar. */
+# }
+
+# .about-icons {
+#     font-size: 1.5rem; /* Ajusta el tamaño de los iconos/emojis */
+#     vertical-align: middle;
+#     margin-left: 10px;
+# }
+
+# .about-description {
+#     font-size: 1.1rem;
+#     line-height: 1.8;
+#     color: rgba(255, 255, 255, 0.7);
+# }
+
+# .about-section-image {
+#     border-radius: 8px; /* Bordes ligeramente redondeados para la imagen */
+#     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+#     filter: brightness(0.8); /* Oscurece ligeramente la imagen para que coincida con tu tema */
+# }
+
+# /* Imagen del título "TEAM" */
+# .team-title-image {
+#     max-width: 300px; /* Ajusta según el tamaño de tu imagen */
+#     height: auto;
+#     margin-bottom: 40px;
+#     margin-top: 40px; /* Espacio después de la sección about */
+#     filter: brightness(1.2) contrast(1.1); /* Ajusta según sea necesario para el efecto */
+#     /* El efecto de contorno que se ve en tu imagen para 'TEAM' se logra mejor directamente en el archivo de imagen (PNG/SVG con fondo transparente) */
+# }
+
+
+# /* Cuadrícula de miembros del equipo */
+# .team-members-row {
+#     text-align: center; /* Centra el contenido dentro de las columnas */
+#     justify-content: center; /* Centra las columnas si no llenan la fila (ej. 2 miembros en una fila de 4) */
+#     margin-bottom: 40px; /* Espacio entre filas de equipo */
+# }
+
+# .team-member-col {
+#     padding: 15px; /* Relleno alrededor de cada tarjeta de miembro */
+#     display: flex; /* Usa flexbox para centrar el contenido verticalmente en la tarjeta */
+#     flex-direction: column;
+#     align-items: center; /* Centra los elementos horizontalmente dentro de la columna */
+# }
+
+# .team-member-card {
+#     background-color: #1a1a1a; /* Fondo más oscuro para la tarjeta */
+#     border-radius: 8px;
+#     padding: 20px;
+#     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+#     transition: transform 0.3s ease, box-shadow 0.3s ease;
+#     width: 100%; /* Asegura que la tarjeta ocupe todo el ancho de su columna */
+# }
+
+# .team-member-card:hover {
+#     transform: translateY(-5px); /* Efecto de "levantar" ligeramente al pasar el ratón */
+#     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+# }
+
+# .team-member-photo {
+#     width: 120px; /* Ancho fijo para fotos circulares */
+#     height: 120px; /* Altura fija para fotos circulares */
+#     object-fit: cover; /* Cubre el área, recortando si es necesario */
+#     border-radius: 50%; /* Hace que la imagen sea circular */
+#     border: 3px solid #FF5722; /* Borde naranja alrededor de la foto */
+#     margin-bottom: 15px;
+#     transition: border-color 0.3s ease;
+# }
+
+# .team-member-card:hover .team-member-photo {
+#     border-color: #fff; /* Borde blanco al pasar el ratón */
+# }
+
+
+# .team-member-name {
+#     font-size: 1.2rem;
+#     font-weight: 700;
+#     color: #fff;
+#     margin-bottom: 5px;
+# }
+
+# .team-member-role {
+#     font-size: 0.9rem;
+#     color: rgba(255, 255, 255, 0.6);
+#     text-transform: uppercase;
+#     letter-spacing: 0.5px;
+# }
+
+# /* Ajustes responsive para la sección combinada */
+# @media (max-width: 767.98px) {
+#     .about-title {
+#         font-size: 2.5rem;
+#     }
+#     .about-description {
+#         font-size: 1rem;
+#     }
+#     .team-title-image {
+#         max-width: 200px;
+#     }
+#     .team-member-photo {
+#         width: 100px;
+#         height: 100px;
+#     }
+# }
+# /* --- Estilos para la Sección SERVICIOS --- */
+# .services-section {
+#     background-color: #1a1a1a; /* Fondo oscuro similar al de tu imagen */
+#     color: #fff;
+#     padding: 80px 0;
+#     min-height: 100vh;
+#     display: flex;
+#     align-items: center;
+# }
+
+# .services-content-row {
+#     align-items: center; /* Centra el contenido de las columnas verticalmente */
+# }
+
+# .services-left-column {
+#     padding-right: 50px; /* Espacio entre el texto y la imagen */
+# }
+
+# .section-title {
+#     color: #FF5722; /* Color naranja para el título principal "SERVICIOS" */
+#     font-size: 2.5rem;
+#     font-weight: 700;
+#     margin-bottom: 50px;
+#     letter-spacing: 1px;
+# }
+
+# .service-item {
+#     margin-bottom: 20px;
+#     cursor: pointer; /* Indica que es clickeable */
+#     position: relative;
+#     padding-bottom: 10px; /* Espacio para la línea */
+# }
+
+# .service-heading {
+#     font-size: 1.8rem;
+#     color: rgba(255, 255, 255, 0.5); /* Color por defecto (grisáceo) */
+#     font-weight: 700;
+#     transition: all 0.3s ease; /* Transición suave para el cambio de tamaño y color */
+#     display: inline-block; /* Necesario para que transform: scale funcione bien */
+#     position: relative;
+#     z-index: 2; /* Asegura que el texto esté por encima de la línea */
+# }
+
+# .service-heading.active,
+# .service-heading:hover {
+#     color: #FF5722; /* Color naranja cuando está activo o al pasar el ratón */
+#     transform: scale(1.1); /* Agrandar ligeramente */
+#     transform-origin: left center; /* Agrandar desde la izquierda */
+# }
+
+# .service-line {
+#     position: absolute;
+#     bottom: 0;
+#     left: 0;
+#     width: 100%;
+#     height: 1px;
+#     background-color: rgba(255, 255, 255, 0.2); /* Línea gris clara */
+#     transition: background-color 0.3s ease;
+# }
+
+# .service-item:hover .service-line,
+# .service-item .service-heading.active + .service-line {
+#     background-color: #FF5722; /* Línea naranja cuando activo o al pasar el ratón */
+# }
+
+# .service-description {
+#     font-size: 1rem;
+#     line-height: 1.6;
+#     color: rgba(255, 255, 255, 0.7);
+#     margin-top: 30px; /* Espacio después de las líneas de servicio */
+# }
+
+# .services-right-column {
+#     display: flex;
+#     justify-content: center;
+#     align-items: center;
+#     min-height: 500px; /* Altura mínima para la columna derecha */
+#     position: relative; /* Para posicionar la forma naranja */
+# }
+
+# .service-image-container {
+#     position: relative;
+#     width: 100%;
+#     max-width: 600px; /* Controla el tamaño máximo de la imagen */
+#     height: auto;
+#     padding-bottom: 100%; /* Truco para mantener la relación de aspecto si la imagen es cuadrada */
+#     display: flex;
+#     justify-content: center;
+#     align-items: center;
+#     overflow: hidden; /* Para que la forma naranja no se desborde */
+# }
+
+# .service-display-image {
+#     position: absolute;
+#     top: 50%;
+#     left: 50%;
+#     width: 85%; /* La imagen es más pequeña que la forma naranja */
+#     height: 85%;
+#     object-fit: cover;
+#     border-radius: 8px; /* Bordes redondeados para la imagen */
+#     transform: translate(-50%, -50%);
+#     z-index: 3; /* Asegura que la imagen esté sobre la forma naranja */
+#     box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+# }
+
+# .large-orange-shape {
+#     position: absolute;
+#     top: 0;
+#     left: 0;
+#     width: 100%;
+#     height: 100%;
+#     background-color: #FF5722; /* Color naranja de la forma */
+#     border-radius: 50%; /* Inicialmente circular, luego transformaremos */
+#     transform: scale(1.1); /* Ligeramente más grande que la imagen */
+#     z-index: 1; /* Detrás de la imagen */
+#     /* Para replicar la forma de la imagen, podrías usar un SVG de fondo o clip-path */
+#     /* Esto es solo una forma naranja circular simple como base */
+# }
+
+# /* Puedes añadir más estilos para la forma naranja con ::before o ::after
+#    si quieres replicar la forma exacta de la imagen de referencia,
+#    que parece una "9" cortada o una "P" invertida.
+#    Eso requeriría más diseño CSS o un SVG de fondo.
+# */
+
+
+# /* Media Queries para Responsividad en la sección de servicios */
+# @media (max-width: 991.98px) {
+#     .services-left-column {
+#         padding-right: 15px;
+#         margin-bottom: 50px;
+#     }
+#     .services-right-column {
+#         min-height: 350px;
+#     }
+#     .section-title {
+#         font-size: 2rem;
+#     }
+#     .service-heading {
+#         font-size: 1.5rem;
+#     }
+#     .service-description {
+#         font-size: 0.9rem;
+#     }
+# }
+
+# @media (max-width: 767.98px) {
+#     .services-left-column, .services-right-column {
+#         text-align: center;
+#         padding-left: 15px;
+#         padding-right: 15px;
+#     }
+#     .service-heading {
+#         transform-origin: center center; /* Centrar el agrandamiento en móviles */
+#     }
+#     .service-item {
+#         max-width: 300px; /* Controla el ancho en móviles */
+#         margin-left: auto;
+#         margin-right: auto;
+#     }
+# }
+
+# /* Estilos Generales y Resets */
+# body {
+#     margin: 0;
+#     font-family: 'Montserrat', sans-serif; /* O la fuente que elijas */
+#     background-color: #000; /* Fondo oscuro general */
+#     color: #fff; /* Color de texto predeterminado */
+#     overflow-x: hidden; /* Evita scroll horizontal */
+# }
+
+# /* Estilos para todas las secciones de contenido */
+# .page-section {
+#     padding: 80px 0; /* Relleno vertical para todas las secciones */
+#     min-height: auto; /* Permite que la altura se adapte al contenido */
+#     display: flex;
+#     align-items: center;
+#     justify-content: center; /* Centra el contenido horizontalmente */
+#     flex-direction: column; /* Apila el contenido verticalmente si es necesario */
+# }
+
+# /* Navbar Personalizado */
+# .custom-navbar {
+#     background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+#     padding: 1rem 0;
+#     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+#     z-index: 1000; /* Asegura que la navbar esté por encima de todo */
+# }
+
+# .aurea-logo {
+#     color: #fff;
+#     font-size: 1.8rem;
+#     font-weight: 700;
+#     letter-spacing: 2px;
+#     text-transform: uppercase;
+#     margin-left: 20px;
+# }
+
+# .custom-navbar .navbar-nav .nav-link {
+#     color: rgba(255, 255, 255, 0.7);
+#     font-weight: 400;
+#     margin-right: 25px;
+#     transition: color 0.3s ease;
+# }
+
+# .custom-navbar .navbar-nav .nav-link:hover {
+#     color: #fff;
+# }
+
+# .custom-navbar .navbar-nav .nav-link.home-link {
+#     color: #FF5722; /* Color específico para el enlace HOME (ej. naranja) */
+#     font-weight: 700;
+# }
+
+# .custom-navbar .navbar-toggler {
+#     border-color: rgba(255, 255, 255, 0.1);
+# }
+
+# .custom-navbar .navbar-toggler-icon {
+#     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+# }
+
+# /* Hero Section (Home) */
+# .hero-section {
+#     position: relative;
+#     width: 100%;
+#     height: 100vh;
+#     display: flex;
+#     justify-content: center;
+#     align-items: center;
+#     overflow: hidden;
+# }
+
+# .video-background {
+#     position: absolute;
+#     top: 0;
+#     left: 0;
+#     width: 100%;
+#     height: 100%;
+#     z-index: -1;
+#     background-color: #000;
+# }
+
+# .video-background video {
+#     width: 100%;
+#     height: 100%;
+#     object-fit: cover;
+#     filter: brightness(0.6) contrast(1.2);
+# }
+
+# .hero-content {
+#     position: relative;
+#     z-index: 1;
+#     text-align: center;
+#     color: #fff;
+#     padding: 0 20px;
+# }
+
+# .main-text-image {
+#     max-width: 80%;
+#     height: auto;
+#     margin-bottom: 20px;
+# }
+
+# .sub-text {
+#     font-size: 1.5rem;
+#     font-weight: 400;
+#     color: rgba(255, 255, 255, 0.8);
+#     max-width: 700px;
+#     margin: 0 auto;
+# }
+
+# /* --- ABOUT & TEAM Section Styles --- */
+# .about-and-team-section {
+#     background-color: #0d0d0d;
+# }
+
+# .about-content-row {
+#     margin-bottom: 60px;
+# }
+
+# .about-title {
+#     font-size: 3rem;
+#     font-weight: 700;
+#     color: #fff;
+#     letter-spacing: 2px;
+#     margin-bottom: 20px;
+#     text-transform: uppercase;
+# }
+
+# .about-icons {
+#     font-size: 1.5rem;
+#     vertical-align: middle;
+#     margin-left: 10px;
+# }
+
+# .about-description {
+#     font-size: 1.1rem;
+#     line-height: 1.8;
+#     color: rgba(255, 255, 255, 0.7);
+# }
+
+# .about-section-image {
+#     border-radius: 8px;
+#     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+#     filter: brightness(0.8);
+# }
+
+# /* Team Title Image */
+# .team-title-image {
+#     max-width: 300px;
+#     height: auto;
+#     margin-bottom: 40px;
+#     margin-top: 40px;
+#     filter: brightness(1.2) contrast(1.1);
+# }
+
+# /* Team Members Grid */
+# .team-members-row {
+#     text-align: center;
+#     justify-content: center;
+#     margin-bottom: 40px;
+# }
+
+# .team-member-col {
+#     padding: 15px;
+#     display: flex;
+#     flex-direction: column;
+#     align-items: center;
+# }
+
+# .team-member-card {
+#     background-color: #1a1a1a;
+#     border-radius: 8px;
+#     padding: 20px;
+#     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+#     transition: transform 0.3s ease, box-shadow 0.3s ease;
+#     width: 100%;
+# }
+
+# .team-member-card:hover {
+#     transform: translateY(-5px);
+#     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+# }
+
+# .team-member-photo {
+#     width: 120px;
+#     height: 120px;
+#     object-fit: cover;
+#     border-radius: 50%;
+#     border: 3px solid #FF5722;
+#     margin-bottom: 15px;
+#     transition: border-color 0.3s ease;
+# }
+
+# .team-member-card:hover .team-member-photo {
+#     border-color: #fff;
+# }
+
+# .team-member-name {
+#     font-size: 1.2rem;
+#     font-weight: 700;
+#     color: #fff;
+#     margin-bottom: 5px;
+# }
+
+# .team-member-role {
+#     font-size: 0.9rem;
+#     color: rgba(255, 255, 255, 0.6);
+#     text-transform: uppercase;
+#     letter-spacing: 0.5px;
+# }
+
+# /* --- Estilos para la Sección SERVICIOS --- */
+# .services-section {
+#     background-color: #1a1a1a;
+#     color: #fff;
+# }
+
+# .services-content-row {
+#     align-items: center;
+# }
+
+# .services-left-column {
+#     padding-right: 50px;
+# }
+
+# .section-title {
+#     color: #FF5722;
+#     font-size: 2.5rem;
+#     font-weight: 700;
+#     margin-bottom: 50px;
+#     letter-spacing: 1px;
+# }
+
+# .service-item {
+#     margin-bottom: 20px;
+#     cursor: pointer;
+#     position: relative;
+#     padding-bottom: 10px;
+# }
+
+# .service-heading {
+#     font-size: 1.8rem;
+#     color: rgba(255, 255, 255, 0.5);
+#     font-weight: 700;
+#     transition: all 0.3s ease;
+#     display: inline-block;
+#     position: relative;
+#     z-index: 2;
+# }
+
+# .service-heading.active,
+# .service-heading:hover {
+#     color: #FF5722;
+#     transform: scale(1.1);
+#     transform-origin: left center;
+# }
+
+# .service-line {
+#     position: absolute;
+#     bottom: 0;
+#     left: 0;
+#     width: 100%;
+#     height: 1px;
+#     background-color: rgba(255, 255, 255, 0.2);
+#     transition: background-color 0.3s ease;
+# }
+
+# .service-item:hover .service-line,
+# .service-item .service-heading.active + .service-line {
+#     background-color: #FF5722;
+# }
+
+# .service-description {
+#     font-size: 1rem;
+#     line-height: 1.6;
+#     color: rgba(255, 255, 255, 0.7);
+#     margin-top: 30px;
+# }
+
+# .services-right-column {
+#     display: flex;
+#     justify-content: center;
+#     align-items: center;
+#     min-height: 500px;
+#     position: relative;
+# }
+
+# .service-image-container {
+#     position: relative;
+#     width: 100%;
+#     max-width: 600px;
+#     height: auto;
+#     padding-bottom: 100%;
+#     display: flex;
+#     justify-content: center;
+#     align-items: center;
+#     overflow: hidden;
+# }
+
+# .service-display-image {
+#     position: absolute;
+#     top: 50%;
+#     left: 50%;
+#     width: 85%;
+#     height: 85%;
+#     object-fit: cover;
+#     border-radius: 8px;
+#     transform: translate(-50%, -50%);
+#     z-index: 3;
+#     box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+# }
+
+# .large-orange-shape {
+#     position: absolute;
+#     top: 0;
+#     left: 0;
+#     width: 100%;
+#     height: 100%;
+#     background-color: #FF5722;
+#     border-radius: 50%;
+#     transform: scale(1.1);
+#     z-index: 1;
+# }
+
+# /* --- Estilos para la Sección PORTFOLIO --- */
+# .portfolio-section {
+#     background-color: #000;
+#     color: #fff;
+#     padding-top: 80px;
+#     overflow: hidden;
+#     position: relative;
+#     min-height: 100vh; /* Se ajustará por JS con el "pin" */
+# }
+
+# .portfolio-title-image {
+#     max-width: 600px;
+#     margin-bottom: 50px;
+#     filter: brightness(1.2);
+# }
+
+# .portfolio-carousel-wrapper {
+#     position: relative;
+#     height: 100vh;
+#     display: flex;
+#     align-items: center;
+# }
+
+# .fixed-orange-shape-bg {
+#     position: absolute;
+#     top: 50%;
+#     left: 50%;
+#     transform: translate(-50%, -50%);
+#     width: 80%;
+#     height: 80vh;
+#     max-width: 1200px;
+#     background-image: url('../assets/orange-shape-bg.png'); /* Ruta a tu imagen de forma naranja */
+#     background-size: contain;
+#     background-repeat: no-repeat;
+#     background-position: center;
+#     z-index: 1;
+#     opacity: 0.8;
+# }
+
+# .portfolio-carousel-items {
+#     display: flex;
+#     width: fit-content;
+#     padding: 0 50px;
+#     position: relative;
+#     z-index: 2;
+#     will-change: transform;
+# }
+
+# .portfolio-item {
+#     flex-shrink: 0;
+#     width: 400px;
+#     height: 450px;
+#     background-color: #1a1a1a;
+#     border-radius: 15px;
+#     margin: 0 20px;
+#     overflow: hidden;
+#     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+#     display: flex;
+#     flex-direction: column;
+#     justify-content: space-between;
+#     transition: transform 0.3s ease, box-shadow 0.3s ease;
+# }
+
+# .portfolio-item:hover {
+#     transform: translateY(-10px);
+#     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+# }
+
+# .portfolio-item-image {
+#     width: 100%;
+#     height: 70%;
+#     object-fit: cover;
+#     border-top-left-radius: 15px;
+#     border-top-right-radius: 15px;
+# }
+
+# .portfolio-item-text {
+#     padding: 20px;
+#     height: 30%;
+#     display: flex;
+#     flex-direction: column;
+#     justify-content: center;
+#     text-align: left;
+# }
+
+# .portfolio-item-text h3 {
+#     font-size: 1.3rem;
+#     color: #FF5722;
+#     margin-bottom: 5px;
+#     text-transform: uppercase;
+# }
+
+# .portfolio-item-text p {
+#     font-size: 0.9rem;
+#     color: rgba(255, 255, 255, 0.7);
+#     margin-bottom: 3px;
+#     line-height: 1.3;
+# }
+
+# .portfolio-nav-arrow {
+#     background-color: transparent;
+#     box-shadow: none;
+#     display: flex;
+#     align-items: center;
+#     justify-content: center;
+#     width: 100px;
+#     height: 100%;
+#     margin-left: 30px;
+# }
+
+# .portfolio-nav-arrow img {
+#     width: 80px;
+#     filter: invert(1) brightness(0.8);
+# }
+
+# /* Media Queries para Responsividad */
+# @media (max-width: 992px) {
+#     .custom-navbar .navbar-nav {
+#         background-color: rgba(0, 0, 0, 0.9);
+#         padding: 10px;
+#         border-radius: 5px;
+#         margin-top: 10px;
+#     }
+#     .custom-navbar .navbar-nav .nav-link {
+#         margin-right: 0;
+#         text-align: center;
+#         padding: 10px 0;
+#     }
+#     .aurea-logo {
+#         margin-left: 10px;
+#     }
+#     .main-text-image {
+#         max-width: 90%;
+#     }
+#     .sub-text {
+#         font-size: 1.2rem;
+#     }
+
+#     /* ABOUT & TEAM Responsive */
+#     .about-title {
+#         font-size: 2.5rem;
+#     }
+#     .about-description {
+#         font-size: 1rem;
+#     }
+#     .team-title-image {
+#         max-width: 200px;
+#     }
+#     .team-member-photo {
+#         width: 100px;
+#         height: 100px;
+#     }
+
+#     /* Servicios Responsive */
+#     .services-left-column {
+#         padding-right: 15px;
+#         margin-bottom: 50px;
+#     }
+#     .services-right-column {
+#         min-height: 350px;
+#     }
+#     .section-title {
+#         font-size: 2rem;
+#     }
+#     .service-heading {
+#         font-size: 1.5rem;
+#     }
+#     .service-description {
+#         font-size: 0.9rem;
+#     }
+
+#     /* Portfolio Responsive */
+#     .portfolio-title-image {
+#         max-width: 400px;
+#     }
+#     .portfolio-item {
+#         width: 350px;
+#         height: 400px;
+#     }
+#     .portfolio-item-text h3 {
+#         font-size: 1.1rem;
+#     }
+#     .portfolio-item-text p {
+#         font-size: 0.8rem;
+#     }
+#     .portfolio-carousel-items {
+#         padding: 0 20px;
+#     }
+# }
+
+# @media (max-width: 767.98px) {
+#     /* Hero Responsive */
+#     .sub-text {
+#         font-size: 1rem;
+#     }
+
+#     /* ABOUT & TEAM Responsive */
+#     .about-title {
+#         font-size: 2rem;
+#     }
+#     .about-description {
+#         font-size: 0.9rem;
+#     }
+#     .team-title-image {
+#         max-width: 180px;
+#     }
+
+#     /* Servicios Responsive */
+#     .services-left-column, .services-right-column {
+#         text-align: center;
+#         padding-left: 15px;
+#         padding-right: 15px;
+#     }
+#     .service-heading {
+#         transform-origin: center center;
+#     }
+#     .service-item {
+#         max-width: 300px;
+#         margin-left: auto;
+#         margin-right: auto;
+#     }
+
+#     /* Portfolio Responsive */
+#     .portfolio-title-image {
+#         max-width: 300px;
+#         margin-bottom: 30px;
+#     }
+#     .portfolio-item {
+#         width: 280px;
+#         height: 350px;
+#         margin: 0 15px;
+#     }
+#     .portfolio-item-text {
+#         padding: 15px;
+#     }
+#     .portfolio-item-text h3 {
+#         font-size: 1rem;
+#     }
+#     .portfolio-item-text p {
+#         font-size: 0.75rem;
+#     }
+#     .portfolio-carousel-items {
+#         padding: 0 15px;
+#     }
+#     .fixed-orange-shape-bg {
+#         width: 90%;
+#         height: 70vh;
+#     }
+#     .portfolio-nav-arrow {
+#         width: 60px;
+#     }
+#     .portfolio-nav-arrow img {
+#         width: 60px;
+#     }
+# }
+
+# @media (max-width: 576px) {
+#     .aurea-logo {
+#         font-size: 1.5rem;
+#     }
+#     /* Hero Responsive */
+#     .sub-text {
+#         font-size: 0.9rem;
+#     }
+# }
+
+
+# /* --- Estilos para la Sección CLIENTES --- */
+# .clients-section {
+#     background-color: #f0f0f0; /* Fondo gris claro como en tu imagen */
+#     color: #333; /* Color de texto oscuro */
+#     padding: 80px 0;
+#     position: relative;
+#     overflow: hidden;
+# }
+# /* ... (Tus estilos existentes hasta la sección de Clientes) ... */
+
+# /* --- Estilos para la Sección SLIDER DE IMÁGENES INFINITO --- */
+# .image-slider-section {
+#     background-color: #FF5722; /* Fondo naranja como en tu imagen */
+#     overflow: hidden; /* Esconde el contenido que se desborda para la animación */
+#     width: 100%;
+#     /* white-space: nowrap; // No es estrictamente necesario si usamos flexbox y flex-shrink: 0 */
+    
+#     height: 30px; /* <--- ALTURA FIJA DE LA BANDA DEL SLIDER (30px) */
+#     line-height: 30px; /* <--- Centra verticalmente el contenido si fuera texto */
+#     padding: 0; /* <--- Eliminamos el padding vertical para controlar la altura con 'height' */
+
+#     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3); /* Sombra superior sutil */
+    
+#     /* Para asegurar que el .slider-track se centre verticalmente si su contenido es más pequeño que 30px */
+#     display: flex;
+#     align-items: center;
+# }
+
+# .slider-track {
+#     display: flex; /* <--- Cambiado a flex para un mejor control del espaciado entre items */
+#     animation: scroll-images 40s linear infinite; /* Animación principal */
+#     /* Ajusta la duración (40s) para controlar la velocidad. Menos segundos = más rápido. */
+#     height: 100%; /* El track ocupa toda la altura de la sección */
+#     white-space: nowrap; /* Asegura que el contenido se mantenga en una línea */
+# }
+
+# .slider-item {
+#     flex-shrink: 0; /* <--- Evita que las imágenes se encojan */
+#     /* width: auto; // <--- Puedes dejar que el ancho se ajuste al contenido de la imagen */
+    
+#     height: 100%; /* <--- Cada item ocupa toda la altura del slider-track (30px) */
+    
+#     margin: 0 15px; /* <--- Espacio entre las imágenes, ajustado a 15px */
+    
+#     /* Asegurarse de que la imagen se centre dentro del item */
+#     display: flex;
+#     justify-content: center;
+#     align-items: center;
+# }
+
+# .slider-item img {
+#     max-height: 100%; /* <--- La imagen se ajusta al 100% de la altura del item (30px) */
+#     width: auto; /* <--- El ancho se ajusta automáticamente manteniendo la proporción */
+#     object-fit: contain; /* Asegura que la imagen se vea completa dentro del item sin recortarse */
+#     filter: brightness(0.9);
+# }
+
+# /* Definición de la animación de desplazamiento */
+# @keyframes scroll-images {
+#     0% {
+#         transform: translateX(0%);
+#     }
+#     100% {
+#         /* Desplaza el 50% del contenido. Asegúrate de que la suma de los anchos de la primera mitad
+#            de tus imágenes + márgenes sea igual al ancho de la segunda mitad para un loop perfecto.
+#            Si tienes un set de 5 imágenes y lo duplicas, el 50% debería ser el ancho total de 5 imágenes + sus márgenes. */
+#         transform: translateX(-50%);
+#     }
+# }
+
+# /* Media Queries para Responsividad (ajustando las alturas para el slider) */
+# @media (max-width: 991.98px) {
+#     /* ... (Estilos existentes de otras secciones) ... */
+#     .slider-item {
+#         height: 100%; /* Hereda del padre */
+#         margin: 0 10px; /* Menos margen en pantallas medianas */
+#     }
+# }
+
+# @media (max-width: 767.98px) {
+#     /* ... (Estilos existentes de otras secciones) ... */
+#     .image-slider-section {
+#         height: 25px; /* <--- Altura ligeramente más pequeña en móviles */
+#         line-height: 25px;
+#     }
+#     .slider-item {
+#         height: 100%;
+#         margin: 0 8px; /* Margen más pequeño en móviles */
+#     }
+# }
+
+# @media (max-width: 575.98px) {
+#     /* ... (Estilos existentes de otras secciones) ... */
+#     .image-slider-section {
+#         height: 20px; /* <--- Altura aún más pequeña en móviles muy pequeños */
+#         line-height: 20px;
+#     }
+#     .slider-item {
+#         height: 100%;
+#         margin: 0 5px; /* Margen muy pequeño en móviles muy pequeños */
+#     }
+# }
+
+# /* ... (Tus estilos existentes hasta la sección de Contacto) ... */
+
+# /* --- Estilos para la Sección CONTACTO --- */
+# .contact-section {
+#     background-color: #0d0d0d;
+#     color: #fff;
+#     padding: 80px 0;
+# }
+
+# /* ... (Estilos existentes para .contact-container, .contact-content-row, .contact-title, .contact-form-design, .submit-btn, .alert.alert-success) ... */
+
+# /* Columna del Mapa y Redes Sociales */
+# .contact-map-social-column {
+#     display: flex;
+#     flex-direction: column; /* Apila el mapa y las redes socialmente */
+#     justify-content: space-between; /* Empuja el mapa arriba, redes abajo */
+#     align-items: center; /* Centra horizontalmente el contenido de esta columna */
+#     padding-left: 40px; /* Espacio entre el formulario y esta columna */
+#     text-align: center; /* Centra el contenido de texto si lo hubiera */
+# }
+
+# .contact-map-container {
+#     width: 100%; /* El contenedor del mapa ocupa todo el ancho disponible */
+#     max-width: 500px; /* Limita el tamaño del mapa */
+#     margin-bottom: 40px; /* Espacio entre el mapa y las redes sociales */
+#     margin-top: 20px; /* Espacio superior */
+# }
+
+# .contact-map-image {
+#     max-width: 100%;
+#     height: auto;
+#     filter: brightness(0.8); /* Oscurece un poco la imagen para que se integre */
+# }
+
+# /* Estilos para las Redes Sociales */
+# .contact-social-media {
+#     display: flex;
+#     justify-content: center; /* Centra los iconos y el logo */
+#     align-items: center;
+#     gap: 25px; /* Espacio entre los iconos */
+#     flex-wrap: wrap; /* Permite que los iconos se envuelvan en pantallas pequeñas */
+#     padding-top: 20px; /* Un poco de padding por si el mapa es corto */
+# }
+
+# .social-icon {
+#     font-size: 2.2rem; /* Tamaño de los iconos de redes sociales */
+#     color: rgba(255, 255, 255, 0.7); /* Color por defecto */
+#     transition: color 0.3s ease, transform 0.2s ease;
+#     text-decoration: none; /* Quita el subrayado de los enlaces */
+# }
+
+# .social-icon:hover {
+#     color: #FF5722; /* Color naranja al pasar el ratón */
+#     transform: translateY(-3px); /* Efecto de levantamiento */
+# }
+
+# .footer-aurea-logo {
+#     max-width: 120px; /* Tamaño del logo "aurea" */
+#     height: auto;
+#     filter: brightness(0.9); /* Ligeramente más oscuro si el logo es blanco */
+#     margin-left: 30px; /* Espacio entre el último icono y el logo */
+# }
+
+
+# /* Media Queries para responsividad del contacto (Ajusta la columna del mapa/social) */
+# @media (max-width: 991.98px) {
+#     /* ... (Estilos existentes de contact-title, contact-info-column, etc.) ... */
+#     .contact-map-social-column {
+#         padding-left: 15px;
+#         margin-top: 40px; /* Espacio entre form y mapa/social en móvil */
+#         align-items: center; /* Centra todo el contenido de la columna en tablet */
+#     }
+#     .contact-map-container {
+#         margin-bottom: 30px;
+#     }
+#     .social-icon {
+#         font-size: 2rem;
+#         gap: 20px;
+#     }
+#     .footer-aurea-logo {
+#         max-width: 100px;
+#         margin-left: 20px;
+#     }
+# }
+
+# @media (max-width: 767.98px) {
+#     .contact-map-social-column {
+#         padding-left: 15px;
+#         padding-right: 15px;
+#         margin-top: 30px;
+#     }
+#     .social-icon {
+#         font-size: 1.8rem;
+#         gap: 15px;
+#     }
+#     .footer-aurea-logo {
+#         max-width: 80px;
+#         margin-left: 15px;
+#     }
+# }
+
+
+
+# /* --- Estilos para la Sección SERVICIOS Opcion 1--- */
+# .services-section {
+#   background-color: var(--c-dark);
+#   color: var(--c-brand);
+# }
+
+# .services-content-row {
+#   align-items: center;
+# }
+
+# .services-left-column {
+#   padding-right: 50px;
+# }
+
+# /* .section-title ya está definido arriba */
+
+# .service-item {
+#   margin-bottom: 20px;
+#   cursor: pointer;
+#   position: relative;
+#   padding-bottom: 10px;
+# }
+
+# .service-heading {
+#   font-size: 1.8rem;
+#   color: var(--c-brand);
+#   /* font-weight: 700; ya se define en el bloque general de títulos */
+#   transition: all 0.3s ease;
+#   display: inline-block;
+#   position: relative;
+#   z-index: 2;
+# }
+
+# .service-heading.active,
+# .service-heading:hover {
+#   color: var(--c-text);
+#   transform: scale(1.1);
+#   transform-origin: left center;
+# }
+
+# .service-line {
+#   position: absolute;
+#   bottom: 0;
+#   left: 0;
+#   width: 100%;
+#   height: 1px;
+#   background-color: rgba(255, 255, 255, 0.2);
+#   transition: background-color 0.3s ease;
+# }
+
+# .service-item:hover .service-line,
+# .service-item .service-heading.active + .service-line {
+#   background-color: var(--c-text);
+# }
+
+# .service-description {
+#   font-size: 1rem;
+#   line-height: 1.6;
+#   color: rgba(255, 255, 255, 0.7);
+#   margin-top: 30px;
+# }
+
+# .services-right-column {
+#   display: flex;
+#   justify-content: center;
+#   align-items: center;
+#   min-height: 500px;
+#   position: relative;
+# }
+
+# .service-image-container {
+#   position: relative;
+#   width: 100%;
+#   max-width: 600px;
+#   height: auto;
+#   padding-bottom: 100%;
+#   display: flex;
+#   justify-content: center;
+#   align-items: center;
+#   overflow: hidden;
+# }
+
+# .service-display-image {
+#   position: absolute;
+#   top: 50%;
+#   left: 50%;
+#   width: 85%;
+#   height: 85%;
+#   object-fit: cover;
+#   border-radius: 8px;
+#   transform: translate(-50%, -50%);
+#   z-index: 3;
+#   box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+# }
+
+# .large-orange-shape {
+#   position: absolute;
+#   top: 0;
+#   left: 0;
+#   width: 100%;
+#   height: 100%;
+#   background-color: #FF5722;
+#   border-radius: 50%;
+#   transform: scale(1.1);
+#   z-index: 1;
+# }
+
+
+
+# script
+
+    // --- SECCIÓN DE SERVICIOS INTERACTIVA ---
+    // const serviceItems = document.querySelectorAll('.service-item');
+    // const serviceDisplayImage = document.getElementById('service-display-image');
+    // const serviceDescriptionElement = document.querySelector('.service-description');
+
+    // const serviceImages = {
+    //     'project-management': 'assets/img-project-management.jpg',
+    //     'staging': 'assets/img-staging.jpg',
+    //     'iluminacion': 'assets/img-iluminacion.jpg',
+    //     'sonido': 'assets/img-sonido.jpg',
+    //     'video': 'assets/img-video.jpg',
+    //     'pantalla': 'assets/img-pantalla.jpg'
+    // };
+
+    // const serviceDescriptions = {
+    //     'project-management': 'Gestión integral de proyectos, desde la planificación hasta la ejecución, asegurando la eficiencia y el cumplimiento de objetivos.',
+    //     'staging': 'Diseño y montaje de escenarios innovadores para eventos de cualquier escala, garantizando una experiencia visual impactante.',
+    //     'iluminacion': 'Creación de ambientes luminosos únicos con tecnología de vanguardia, para realzar cada momento del evento.',
+    //     'sonido': 'Sistemas de sonido de alta fidelidad y diseño acústico optimizado para una experiencia auditiva inmersiva y clara.',
+    //     'video': 'Producción y proyección de contenido visual de alta calidad, incluyendo mapping 3D y pantallas gigantes para espectáculos memorables.',
+    //     'pantalla': 'Instalación y configuración de pantallas LED y proyecciones, adaptadas a las necesidades específicas de cada evento.'
+    // };
+
+    // serviceItems.forEach(item => {
+    //     item.addEventListener('click', function () {
+    //         serviceItems.forEach(si => {
+    //             si.querySelector('.service-heading').classList.remove('active');
+    //         });
+
+    //         const heading = this.querySelector('.service-heading');
+    //         heading.classList.add('active');
+
+    //         const type = this.dataset.service;
+    //         const newImage = serviceImages[type];
+    //         const newText = serviceDescriptions[type];
+
+    //         if (newImage) {
+    //             gsap.to(serviceDisplayImage, {
+    //                 opacity: 0,
+    //                 duration: 0.3,
+    //                 onComplete: () => {
+    //                     serviceDisplayImage.src = newImage;
+    //                     serviceDescriptionElement.textContent = newText;
+    //                     gsap.to(serviceDisplayImage, {
+    //                         opacity: 1,
+    //                         duration: 0.3
+    //                     });
+    //                 }
+    //             });
+    //         }
+    //     });
+
+    //     // Accesibilidad: activar con teclado
+    //     item.addEventListener('keydown', function (e) {
+    //         if (e.key === "Enter" || e.key === " ") {
+    //             this.click();
+    //         }
+    //     });
+    // });
+
+    // // Estado inicial
+    // const initialItem = document.querySelector('.service-heading.active')?.closest('.service-item') || serviceItems[0];
+    // if (initialItem) {
+    //     const type = initialItem.dataset.service;
+    //     initialItem.querySelector('.service-heading').classList.add('active');
+    //     serviceDisplayImage.src = serviceImages[type];
+    //     serviceDescriptionElement.textContent = serviceDescriptions[type];
+    // }
+
+function initServices() {
+        // --- SECCIÓN SERVICIOS: Hover y Cambio de Descripción/Imagen ---
+        const serviceItems = document.querySelectorAll('.service-item');
+        const serviceDescriptionElement = document.querySelector('.service-description');
+        const serviceImageElement = document.getElementById('service-display-image');
+
+        if (!serviceItems.length || !serviceDescriptionElement || !serviceImageElement) return;
+
+        // Objeto con descripciones e IMÁGENES para cada servicio
+        const serviceData = {
+            'project-management': {
+                desc: 'Ofrecemos soluciones integrales de gestión de proyectos, asegurando que cada fase de tu evento se desarrolle sin problemas, desde la planificación inicial hasta la ejecución final. Nuestro equipo experto garantiza una coordinación eficiente y resultados impecables.',
+                img: '/assets/images/project_management.png' // Asegúrate de que esta ruta sea correcta
+            },
+            'design-scenarios': { // Corregido para que coincida con data-service
+                desc: 'Diseño y montaje de estructuras escénicas que transforman cualquier espacio en un ambiente impactante y funcional. Creamos escenarios únicos adaptados a las necesidades específicas de tu evento, utilizando tecnología de punta y materiales de alta calidad.',
+                img: '/assets/images/diseño_escenarios.png' // Asegúrate de que esta ruta sea correcta
+            },
+            'technical-production': { // Corregido para que coincida con data-service
+                desc: 'Contamos con personal altamente capacitado y con amplia experiencia en producciones internacionales, especializado en la ejecución de espectáculos y giras de primer nivel mundial. Nuestro equipo se encarga de coordinar cada detalle técnico, asegurando un desarrollo fluido y profesional en todas las etapas del evento',
+                img: '/assets/images/produccion_tecnica.png' // Asegúrate de que esta ruta sea correcta
+            },
+            'assembly-direction': { // Corregido para que coincida con data-service
+                desc: 'Nuestro equipo técnico lidera y coordina a los servicios especializados para garantizar un montaje seguro, preciso y acorde a la magnitud del evento. Supervisamos cada fase del montaje para que el resultado final cumpla con los más altos estándares de calidad y presentación.',
+                img: '/assets/images/direccion_montaje.png' // Asegúrate de que esta ruta sea correcta
+            },
+            'technical-services': { // Corregido para que coincida con data-service
+                desc: 'Ponemos a disposición sonido, iluminación, video, pantallas LED, escenografía, efectos especiales, logística, rigging, energía y otros servicios esenciales para la correcta ejecución de cualquier evento o espectáculo. Brindamos soluciones completas que integran tecnología y experiencia profesional.',
+                img: '/assets/images/servicio_tecnico.png' // Asegúrate de que esta ruta sea correcta
+            },
+            // 'pantalla': {
+            //     desc: 'Diseño de pantallas para shows y eventos. Creación de visuales para pantallas gigantes. Sets originales para eventos comerciales y shows. Mapping 3D. Contamos con tecnología de vanguardia para ofrecer soluciones de visualización impactantes.',
+            //     img: '/assets/images/mask-group.png' // Esta es la imagen predeterminada que ya tienes
+            // }
+        };
+
+        // Función para activar un servicio
+        function activateService(item) {
+            // Remover clase 'active' de todos los ítems
+            serviceItems.forEach(si => {
+                si.classList.remove('active');
+                si.querySelector('.service-heading').classList.remove('active'); // Remover de los headings también
+            });
+
+            // Añadir clase 'active' al ítem y heading actual
+            item.classList.add('active');
+            item.querySelector('.service-heading').classList.add('active');
+
+            const type = item.dataset.service;
+            if (serviceData[type]) { // Asegúrate de que el tipo exista en serviceData
+                serviceDescriptionElement.textContent = serviceData[type].desc;
+                serviceImageElement.src = serviceData[type].img;
+            } else {
+                // Fallback si no se encuentra el servicio (opcional)
+                console.warn(`No se encontraron datos para el servicio: ${type}`);
+                // Puedes establecer una descripción e imagen predeterminadas aquí
+                serviceDescriptionElement.textContent = "Selecciona un servicio para ver la descripción.";
+                serviceImageElement.src = "/assets/images/mask-group.png"; // Imagen predeterminada
+            }
+        }
+
+        serviceItems.forEach(item => {
+            // Usamos 'mouseenter' y 'mouseleave' para el efecto de hover y reseteo
+            item.addEventListener('mouseenter', function () {
+                activateService(this);
+            });
+
+            // Opcional: Si quieres que regrese al estado inicial o a un servicio predeterminado
+            // cuando el cursor sale de los items. Esto puede ser útil.
+            // item.addEventListener('mouseleave', function() {
+            //     // Revertir a un estado inicial, por ejemplo, el primer servicio o el activo por defecto
+            //     const defaultService = document.querySelector('.service-item[data-service="assembly-direction"]'); // O el que quieras por defecto
+            //     if (defaultService) {
+            //         activateService(defaultService);
+            //     }
+            // });
+
+            // Accesibilidad: activar con teclado
+            item.addEventListener('keydown', function (e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault(); // Previene el scroll de la página con la barra espaciadora
+                    activateService(this);
+                }
+            });
+        });
+
+        // Estado inicial (Carga la información del servicio con la clase 'active' al cargar la página)
+        // Se cambió la variable serviceDescriptions por serviceData.
+        const initialItem = document.querySelector('.service-heading.active')?.closest('.service-item');
+        if (initialItem) {
+            // Si hay un item con 'active' al inicio, lo activamos
+            activateService(initialItem);
+        } else if (serviceItems.length > 0) {
+            // Si no hay un activo, activamos el primer servicio por defecto
+            activateService(serviceItems[0]);
+        }
+    }
+
+// -----------------------------------------------------------------
+    // Módulo 2: Funcionalidad de la sección de servicios OPCION 1 
+    // -----------------------------------------------------------------
+    //  
+
+function initServices() {
+        // --- SECCIÓN SERVICIOS: Hover y Cambio de Descripción/Imagen ---
+        const serviceItems = document.querySelectorAll('.service-item');
+        const serviceDescriptionElement = document.querySelector('.service-description');
+        const serviceImageElement = document.getElementById('service-display-image');
+
+        if (!serviceItems.length || !serviceDescriptionElement || !serviceImageElement) return;
+
+        // Objeto con descripciones e IMÁGENES para cada servicio
+        const serviceData = {
+            'project-management': {
+                desc: 'Ofrecemos soluciones integrales de gestión de proyectos, asegurando que cada fase de tu evento se desarrolle sin problemas, desde la planificación inicial hasta la ejecución final. Nuestro equipo experto garantiza una coordinación eficiente y resultados impecables.',
+                img: '/assets/images/project_management.png' // Asegúrate de que esta ruta sea correcta
+            },
+            'design-scenarios': { // Corregido para que coincida con data-service
+                desc: 'Diseño y montaje de estructuras escénicas que transforman cualquier espacio en un ambiente impactante y funcional. Creamos escenarios únicos adaptados a las necesidades específicas de tu evento, utilizando tecnología de punta y materiales de alta calidad.',
+                img: '/assets/images/diseño_escenarios.png' // Asegúrate de que esta ruta sea correcta
+            },
+            'technical-production': { // Corregido para que coincida con data-service
+                desc: 'Contamos con personal altamente capacitado y con amplia experiencia en producciones internacionales, especializado en la ejecución de espectáculos y giras de primer nivel mundial. Nuestro equipo se encarga de coordinar cada detalle técnico, asegurando un desarrollo fluido y profesional en todas las etapas del evento',
+                img: '/assets/images/produccion_tecnica.png' // Asegúrate de que esta ruta sea correcta
+            },
+            'assembly-direction': { // Corregido para que coincida con data-service
+                desc: 'Nuestro equipo técnico lidera y coordina a los servicios especializados para garantizar un montaje seguro, preciso y acorde a la magnitud del evento. Supervisamos cada fase del montaje para que el resultado final cumpla con los más altos estándares de calidad y presentación.',
+                img: '/assets/images/direccion_montaje.png' // Asegúrate de que esta ruta sea correcta
+            },
+            'technical-services': { // Corregido para que coincida con data-service
+                desc: 'Ponemos a disposición sonido, iluminación, video, pantallas LED, escenografía, efectos especiales, logística, rigging, energía y otros servicios esenciales para la correcta ejecución de cualquier evento o espectáculo. Brindamos soluciones completas que integran tecnología y experiencia profesional.',
+                img: '/assets/images/servicio_tecnico.png' // Asegúrate de que esta ruta sea correcta
+            },
+            // 'pantalla': {
+            //     desc: 'Diseño de pantallas para shows y eventos. Creación de visuales para pantallas gigantes. Sets originales para eventos comerciales y shows. Mapping 3D. Contamos con tecnología de vanguardia para ofrecer soluciones de visualización impactantes.',
+            //     img: '/assets/images/mask-group.png' // Esta es la imagen predeterminada que ya tienes
+            // }
+        };
+
+        // Función para activar un servicio
+        function activateService(item) {
+            // Remover clase 'active' de todos los ítems
+            serviceItems.forEach(si => {
+                si.classList.remove('active');
+                si.querySelector('.service-heading').classList.remove('active'); // Remover de los headings también
+            });
+
+            // Añadir clase 'active' al ítem y heading actual
+            item.classList.add('active');
+            item.querySelector('.service-heading').classList.add('active');
+
+            const type = item.dataset.service;
+            if (serviceData[type]) { // Asegúrate de que el tipo exista en serviceData
+                serviceDescriptionElement.textContent = serviceData[type].desc;
+                serviceImageElement.src = serviceData[type].img;
+            } else {
+                // Fallback si no se encuentra el servicio (opcional)
+                console.warn(`No se encontraron datos para el servicio: ${type}`);
+                // Puedes establecer una descripción e imagen predeterminadas aquí
+                serviceDescriptionElement.textContent = "Selecciona un servicio para ver la descripción.";
+                serviceImageElement.src = "/assets/images/mask-group.png"; // Imagen predeterminada
+            }
+        }
+
+        serviceItems.forEach(item => {
+            // Usamos 'mouseenter' y 'mouseleave' para el efecto de hover y reseteo
+            item.addEventListener('mouseenter', function () {
+                activateService(this);
+            });
+
+            // Opcional: Si quieres que regrese al estado inicial o a un servicio predeterminado
+            // cuando el cursor sale de los items. Esto puede ser útil.
+            // item.addEventListener('mouseleave', function() {
+            //     // Revertir a un estado inicial, por ejemplo, el primer servicio o el activo por defecto
+            //     const defaultService = document.querySelector('.service-item[data-service="assembly-direction"]'); // O el que quieras por defecto
+            //     if (defaultService) {
+            //         activateService(defaultService);
+            //     }
+            // });
+
+            // Accesibilidad: activar con teclado
+            item.addEventListener('keydown', function (e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault(); // Previene el scroll de la página con la barra espaciadora
+                    activateService(this);
+                }
+            });
+        });
+
+        // Estado inicial (Carga la información del servicio con la clase 'active' al cargar la página)
+        // Se cambió la variable serviceDescriptions por serviceData.
+        const initialItem = document.querySelector('.service-heading.active')?.closest('.service-item');
+        if (initialItem) {
+            // Si hay un item con 'active' al inicio, lo activamos
+            activateService(initialItem);
+        } else if (serviceItems.length > 0) {
+            // Si no hay un activo, activamos el primer servicio por defecto
+            activateService(serviceItems[0]);
+        }
+    }
+
+
+// -----------------------------------------------------------------
+    // Módulo 2: Funcionalidad de la sección de servicios OPCION 2
+    // -----------------------------------------------------------------
+    //    
+
+     function initServices() {
+        // --- SECCIÓN SERVICIOS: Hover y Cambio de Descripción/Imagen ---
+        const serviceItems = document.querySelectorAll('.service-item');
+        const serviceDescriptionElement = document.querySelector('.service-description');
+        const serviceImageElement = document.getElementById('service-display-image');
+        const serviceIconElement = document.querySelector('.service-icon');
+
+        if (!serviceItems.length || !serviceDescriptionElement || !serviceImageElement || !serviceIconElement) return;
+
+        // Objeto con descripciones e IMÁGENES para cada servicio
+        const serviceData = {
+            'project-management': {
+                desc: 'Ofrecemos soluciones integrales de gestión de proyectos, asegurando que cada fase de tu evento se desarrolle sin problemas, desde la planificación inicial hasta la ejecución final. Nuestro equipo experto garantiza una coordinación eficiente y resultados impecables.',
+                img: '/assets/images/project_management.png',
+                icon: '/assets/images/icon_project_management.png'
+            },
+            'design-scenarios': { 
+                desc: 'Diseño y montaje de estructuras escénicas que transforman cualquier espacio en un ambiente impactante y funcional. Creamos escenarios únicos adaptados a las necesidades específicas de tu evento, utilizando tecnología de punta y materiales de alta calidad.',
+                img: '/assets/images/diseño_escenarios.png',
+                icon: '/assets/images/icon_design.png'
+            },
+            'technical-production': { 
+                desc: 'Contamos con personal altamente capacitado y con amplia experiencia en producciones internacionales, especializado en la ejecución de espectáculos y giras de primer nivel mundial. Nuestro equipo se encarga de coordinar cada detalle técnico, asegurando un desarrollo fluido y profesional en todas las etapas del evento',
+                img: '/assets/images/produccion_tecnica.png',
+                icon: '/assets/images/icon_technical_production.png'
+            },
+            'assembly-direction': { 
+                desc: 'Nuestro equipo técnico lidera y coordina a los servicios especializados para garantizar un montaje seguro, preciso y acorde a la magnitud del evento. Supervisamos cada fase del montaje para que el resultado final cumpla con los más altos estándares de calidad y presentación.',
+                img: '/assets/images/direccion_montaje.png',
+                icon: '/assets/images/icon_assembly.png'
+            },
+            'technical-services': { 
+                desc: 'Ponemos a disposición sonido, iluminación, video, pantallas LED, escenografía, efectos especiales, logística, rigging, energía y otros servicios esenciales para la correcta ejecución de cualquier evento o espectáculo. Brindamos soluciones completas que integran tecnología y experiencia profesional.',
+                img: '/assets/images/servicio_tecnico.png',
+                icon: '/assets/images/icon_technical_services.png'
+            }
+        };
+
+        // Función para activar un servicio
+        function activateService(item) {
+            // Remover clase 'active' de todos los ítems
+            serviceItems.forEach(si => {
+                si.classList.remove('active');
+                si.querySelector('.service-heading').classList.remove('active');
+            });
+
+            // Añadir clase 'active' al ítem y heading actual
+            item.classList.add('active');
+            item.querySelector('.service-heading').classList.add('active');
+
+            const type = item.dataset.service;
+            if (serviceData[type]) {
+                serviceDescriptionElement.textContent = serviceData[type].desc;
+                serviceImageElement.src = serviceData[type].img;
+                serviceIconElement.src = serviceData[type].icon;
+            }
+        }
+
+        // Función para desactivar todos los servicios y volver al estado inicial
+        function deactivateAll() {
+            serviceItems.forEach(si => {
+                si.classList.remove('active');
+                si.querySelector('.service-heading').classList.remove('active');
+            });
+            serviceDescriptionElement.textContent = 'Pasa el cursor sobre un servicio para ver los detalles.';
+            serviceImageElement.src = '/assets/images/mask-group.png';
+            serviceIconElement.src = '/assets/images/icono_services.png'; // Default icon
+        }
+
+        // Activar/Desactivar servicio al pasar el cursor
+        serviceItems.forEach(item => {
+            item.addEventListener('mouseenter', function () {
+                activateService(this);
+            });
+
+            item.addEventListener('mouseleave', function() {
+                deactivateAll();
+            });
+
+            // Accesibilidad: activar con teclado
+            item.addEventListener('keydown', function (e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    activateService(this);
+                }
+            });
+        });
+
+        // Estado inicial: todo desactivado
+        deactivateAll();
+    }
+
+# Servicio opcion 3
+#     function initServices() {
+#     const serviceItems = document.querySelectorAll('.service-item');
+#     const serviceDescriptionElement = document.querySelector('.service-description');
+#     const serviceImageElement = document.getElementById('service-display-image');
+#     const serviceIconElement = document.querySelector('.service-icon');
+
+#     if (!serviceItems.length || !serviceDescriptionElement || !serviceImageElement || !serviceIconElement) return;
+
+#     const serviceData = {
+#         'project-management': {
+#             desc: 'Ofrecemos soluciones integrales de gestión de proyectos, asegurando que cada fase de tu evento se desarrolle sin problemas, desde la planificación inicial hasta la ejecución final. Nuestro equipo experto garantiza una coordinación eficiente y resultados impecables.',
+#             img: '/assets/images/project_management.png',
+#             icon: '/assets/images/icon_project_management.png'
+#         },
+#         'design-scenarios': {
+#             desc: 'Diseño y montaje de estructuras escénicas que transforman cualquier espacio en un ambiente impactante y funcional. Creamos escenarios únicos adaptados a las necesidades específicas de tu evento, utilizando tecnología de punta y materiales de alta calidad.',
+#             img: '/assets/images/diseño_escenarios.png',
+#             icon: '/assets/images/icon_design.png'
+#         },
+#         'technical-production': {
+#             desc: 'Contamos con personal altamente capacitado y con amplia experiencia en producciones internacionales, especializado en la ejecución de espectáculos y giras de primer nivel mundial. Nuestro equipo se encarga de coordinar cada detalle técnico, asegurando un desarrollo fluido y profesional en todas las etapas del evento',
+#             img: '/assets/images/produccion_tecnica.png',
+#             icon: '/assets/images/icon_technical_production.png'
+#         },
+#         'assembly-direction': {
+#             desc: 'Nuestro equipo técnico lidera y coordina a los servicios especializados para garantizar un montaje seguro, preciso y acorde a la magnitud del evento. Supervisamos cada fase del montaje para que el resultado final cumpla con los más altos estándares de calidad y presentación.',
+#             img: '/assets/images/direccion_montaje.png',
+#             icon: '/assets/images/icon_assembly.png'
+#         },
+#         'technical-services': {
+#             desc: 'Ponemos a disposición sonido, iluminación, video, pantallas LED, escenografía, efectos especiales, logística, rigging, energía y otros servicios esenciales para la correcta ejecución de cualquier evento o espectáculo. Brindamos soluciones completas que integran tecnología y experiencia profesional.',
+#             img: '/assets/images/servicio_tecnico.png',
+#             icon: '/assets/images/icon_technical_services.png'
+#         }
+#     };
+
+#     // Preload de imágenes
+#     Object.values(serviceData).forEach(data => {
+#         const img = new Image();
+#         img.src = data.img;
+#         const icon = new Image();
+#         icon.src = data.icon;
+#     });
+
+#     // Función para actualizar contenido con fade
+#     function updateContent(desc, img, icon) {
+#         [serviceDescriptionElement, serviceImageElement, serviceIconElement].forEach(el => el.classList.add("fade-out"));
+
+#         setTimeout(() => {
+#             serviceDescriptionElement.textContent = desc;
+#             serviceImageElement.src = img;
+#             serviceIconElement.src = icon;
+
+#             [serviceDescriptionElement, serviceImageElement, serviceIconElement].forEach(el => el.classList.remove("fade-out"));
+#         }, 150);
+#     }
+
+#     function activateService(item) {
+#         serviceItems.forEach(si => {
+#             si.classList.remove('active');
+#             si.querySelector('.service-heading').classList.remove('active');
+#         });
+
+#         item.classList.add('active');
+#         item.querySelector('.service-heading').classList.add('active');
+
+#         const type = item.dataset.service;
+#         if (serviceData[type]) {
+#             updateContent(serviceData[type].desc, serviceData[type].img, serviceData[type].icon);
+#         }
+#     }
+
+#     function deactivateAll() {
+#         serviceItems.forEach(si => {
+#             si.classList.remove('active');
+#             si.querySelector('.service-heading').classList.remove('active');
+#         });
+#         updateContent(
+#             'Pasa el cursor sobre un servicio para ver los detalles.',
+#             '/assets/images/mask-group.png',
+#             '/assets/images/icono_services.png'
+#         );
+#     }
+
+#     serviceItems.forEach(item => {
+#         item.addEventListener('mouseenter', function () {
+#             activateService(this);
+#         });
+
+#         item.addEventListener('mouseleave', function() {
+#             deactivateAll(); // o comentar esta línea si querés que quede el último activo
+#         });
+
+#         item.addEventListener('keydown', function (e) {
+#             if (e.key === "Enter" || e.key === " ") {
+#                 e.preventDefault();
+#                 activateService(this);
+#             }
+#         });
+#     });
+
+#     // Estado inicial
+#     deactivateAll();
+# }
+
+#     function initServices() {
+#     const serviceItems = document.querySelectorAll('.service-item');
+#     const serviceDescriptionElement = document.querySelector('.service-description');
+#     const serviceImageElement = document.getElementById('service-display-image');
+#     const serviceIconElement = document.querySelector('.service-icon');
+
+#     if (!serviceItems.length || !serviceDescriptionElement || !serviceImageElement || !serviceIconElement) return;
+
+#     const serviceData = {
+#         'project-management': {
+#             desc: 'Ofrecemos soluciones integrales de gestión de proyectos, asegurando que cada fase de tu evento se desarrolle sin problemas, desde la planificación inicial hasta la ejecución final. Nuestro equipo experto garantiza una coordinación eficiente y resultados impecables.',
+#             img: '/assets/images/project_management.png',
+#             icon: '/assets/images/icon_project_management.png'
+#         },
+#         'design-scenarios': {
+#             desc: 'Diseño y montaje de estructuras escénicas que transforman cualquier espacio en un ambiente impactante y funcional. Creamos escenarios únicos adaptados a las necesidades específicas de tu evento, utilizando tecnología de punta y materiales de alta calidad.',
+#             img: '/assets/images/diseño_escenarios.png',
+#             icon: '/assets/images/icon_design.png'
+#         },
+#         'technical-production': {
+#             desc: 'Contamos con personal altamente capacitado y con amplia experiencia en producciones internacionales, especializado en la ejecución de espectáculos y giras de primer nivel mundial. Nuestro equipo se encarga de coordinar cada detalle técnico, asegurando un desarrollo fluido y profesional en todas las etapas del evento',
+#             img: '/assets/images/produccion_tecnica.png',
+#             icon: '/assets/images/icon_technical_production.png'
+#         },
+#         'assembly-direction': {
+#             desc: 'Nuestro equipo técnico lidera y coordina a los servicios especializados para garantizar un montaje seguro, preciso y acorde a la magnitud del evento. Supervisamos cada fase del montaje para que el resultado final cumpla con los más altos estándares de calidad y presentación.',
+#             img: '/assets/images/direccion_montaje.png',
+#             icon: '/assets/images/icon_assembly.png'
+#         },
+#         'technical-services': {
+#             desc: 'Ponemos a disposición sonido, iluminación, video, pantallas LED, escenografía, efectos especiales, logística, rigging, energía y otros servicios esenciales para la correcta ejecución de cualquier evento o espectáculo. Brindamos soluciones completas que integran tecnología y experiencia profesional.',
+#             img: '/assets/images/servicio_tecnico.png',
+#             icon: '/assets/images/icon_technical_services.png'
+#         }
+#     };
+
+#     // Preload de imágenes
+#     Object.values(serviceData).forEach(data => {
+#         const img = new Image();
+#         img.src = data.img;
+#         const icon = new Image();
+#         icon.src = data.icon;
+#     });
+
+#     // Función para actualizar contenido con fade
+#     function updateContent(desc, img, icon) {
+#         [serviceDescriptionElement, serviceImageElement, serviceIconElement].forEach(el => el.classList.add("fade-out"));
+
+#         setTimeout(() => {
+#             serviceDescriptionElement.textContent = desc;
+#             serviceImageElement.src = img;
+#             serviceIconElement.src = icon;
+
+#             [serviceDescriptionElement, serviceImageElement, serviceIconElement].forEach(el => el.classList.remove("fade-out"));
+#         }, 150);
+#     }
+
+#     function activateService(item) {
+#         serviceItems.forEach(si => {
+#             si.classList.remove('active');
+#             si.querySelector('.service-heading').classList.remove('active');
+#         });
+
+#         item.classList.add('active');
+#         item.querySelector('.service-heading').classList.add('active');
+
+#         const type = item.dataset.service;
+#         if (serviceData[type]) {
+#             updateContent(serviceData[type].desc, serviceData[type].img, serviceData[type].icon);
+#         }
+#     }
+
+#     function deactivateAll() {
+#         serviceItems.forEach(si => {
+#             si.classList.remove('active');
+#             si.querySelector('.service-heading').classList.remove('active');
+#         });
+#         updateContent(
+#             'Pasa el cursor sobre un servicio para ver los detalles.',
+#             '/assets/images/mask-group.png',
+#             '/assets/images/icono_services.png'
+#         );
+#     }
+
+#     serviceItems.forEach(item => {
+#         item.addEventListener('mouseenter', function () {
+#             activateService(this);
+#         });
+
+#         item.addEventListener('mouseleave', function() {
+#             deactivateAll(); // o comentar esta línea si querés que quede el último activo
+#         });
+
+#         item.addEventListener('keydown', function (e) {
+#             if (e.key === "Enter" || e.key === " ") {
+#                 e.preventDefault();
+#                 activateService(this);
+#             }
+#         });
+#     });
+
+#     // Estado inicial
+#     deactivateAll();
+# }
+
